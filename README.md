@@ -105,24 +105,23 @@ API: https://api.teleport.org/api/cities/
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+Mireframe: https://wireframe.cc/atSHeo
 
-### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
+### MVP/PostMVP 
 
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- Create a game that is played once and doesn't keep score 
+- Allow user to filter the random city provided (by country, continent, etc)
+- Show to scores in a cool way with CSS
 
 #### PostMVP  
 *These are examples only. Replace with your own Post-MVP features.*
 
-- Add second API
-- Use local storage to save user favorites
+- Use openbrewerydb api to add a brewery score
+- Add more filters (stuff like population size)
+- Make the game go for 10 cities and show a score and "report card"
+- All users to pick what categories are a taken into the city's score
 
 ## Project Schedule
 
@@ -134,10 +133,10 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |---|---| ---|
 |July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
 |July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
+|July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Incomplete
+|July 14| HTML and JavaScript complete | Incomplete
+|July 15| Complete CSS (styled form, score section)  | Incomplete
+|July 16| MVP - add more filters, game to 10, scorecard, category selector | Incomplete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
