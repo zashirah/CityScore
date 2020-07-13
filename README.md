@@ -125,9 +125,9 @@ Wireframe: https://wireframe.cc/atSHeo
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |July 13| Project Approval | Incomplete
-|July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Incomplete
+|July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Complete
 |July 14| HTML and JavaScript complete | Incomplete
 |July 15| Complete CSS (styled form, score section)  | Incomplete
 |July 16| MVP - add more filters, game to 10, scorecard, category selector | Incomplete
