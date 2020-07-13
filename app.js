@@ -3,7 +3,8 @@ const submitContinentButton = document.querySelector('#updateCityList');
 submitContinentButton.addEventListener('click', (e) => {
      e.preventDefault();
      const submittedContinent = document.querySelector('#continents').value
-     console.log(submittedContinent);
+     console.log(submittedContinent)
+     getUrbanAreaList(submittedContinent);
 });
 
 
@@ -25,15 +26,27 @@ submitContinentButton.addEventListener('click', (e) => {
 
 
 
-async function getUrbanAreaList() {
-     const url = 'https://api.teleport.org/api/urban_areas';
-     try {
-          const response = await axios.get(url);
-          data = response.data._links['ua:item'];
-          console.log(data);
-          return data
-     } catch (error) {
-          console.log(error);
-     }
+async function getUrbanAreaList(continent) {
+     if (continent === 'all') {
+          const allUrl = 'https://api.teleport.org/api/urban_areas';
+          try {
+               const response = await axios.get(allUrl);
+               data = response.data._links['ua:item'];
+               console.log(data);
+               return data
+          } catch (error) {
+               console.log(error);
+          };
+     } else {
+          const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
+          try {
+               const response = await axios.get(continetUrl);
+               data = response.data;
+               console.log(data);
+               return data
+          } catch (error) {
+               console.log(error);
+          };
+     };
 };
 getUrbanAreaList();
