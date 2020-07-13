@@ -4,7 +4,7 @@
 
 ## Project Description
 
-A game to determine how well you know a city based on Teleport's quality of life data.
+A 1 page site showing multiple data points for a particular city (or urban area). Data points include: quality of life, business freedom, climate, cost of living, culture, education, job market, tolerance, and much more. 
 
 ## API and Data Sample
 
@@ -111,22 +111,17 @@ Mireframe: https://wireframe.cc/atSHeo
 
 #### MVP 
 
-- Create a game that is played once and doesn't keep score 
-- Allow user to filter the random city provided (by country, continent, etc)
+- Give dropdown menu to show more details at the bottom of the main score area
+- Add filter to select Country/Continent (make searching easier)
 - Show scores as a percentage bar with CSS 
 
 #### PostMVP  
 
 - Use openbrewerydb api to add a brewery score
-- Add more filters (stuff like population size)
-- Make the game go for 10 cities and show a score and "report card"
-- Allow users to pick what categories are a taken into the city's score
+- Allow users to compare cities
+- Allow users to pick what categories they want to see below the main score area and display all of them
 
 ## Project Schedule
-
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Status
 |---|---| ---|
@@ -147,33 +142,23 @@ Include a full list of features that have been prioritized based on the `Time an
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Base HTML | M | 2hrs| hrs | hrs |
 | Base CSS | M | 2hrs| hrs | hrs |
-| Explore Data | H | 2hrs| hrs | hrs |
-| Base JS (inc. dynamic HTML) | H | 4hrs| hrs | hrs |
-| Gamify | M | 4hrs| hrs | hrs |
-| Style Form | M | 3hrs| hrs | hrs |
-| Style Scores | H | 3hrs| hrs | hrs |
-| Add Extra Filters | L | 3hrs| hrs | hrs |
-| Add Category Selection | L | 4hrs| hrs | hrs |
+| Explore Data | M | 2hrs| hrs | hrs |
+| JS - Summary/Score Sections | H | 4hrs| hrs | hrs |
+| JS - Details Section | M | 2hrs| hrs | hrs |
+| JS - Form | H | 2hrs| hrs | hrs |
+| CSS - Summary/Score Sections | H | 4hrs| hrs | hrs |
+| CSS - Details Section | M | 2hrs| hrs | hrs |
+| CSS - Form | H | 2hrs| hrs | hrs |
+| Category Selection | L | 4hrs| hrs | hrs |
 | Add Brewdog | L | 3hrs| hrs | hrs |
-| Total | n/a | 32hrs| hrs | hrs |
+| Add City Comparison | L | 8hrs | hrs | hrs |
+| Total | n/a | 37hrs| hrs | hrs |
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
-
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
-
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+
