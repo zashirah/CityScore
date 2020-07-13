@@ -6,6 +6,10 @@
 
 A game to determine how well you know a city based on Teleport's quality of life data.   
 
+or
+
+A 1 page site to lookup and retreive a city's quality of life data (and other basic stats) from Teleport's app. 
+
 ## API and Data Sample
 
 API: https://api.teleport.org/api/cities/
@@ -113,15 +117,14 @@ Mireframe: https://wireframe.cc/atSHeo
 
 - Create a game that is played once and doesn't keep score 
 - Allow user to filter the random city provided (by country, continent, etc)
-- Show to scores in a cool way with CSS
+- Show scores as a percentage bar with CSS 
 
 #### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
 
 - Use openbrewerydb api to add a brewery score
 - Add more filters (stuff like population size)
 - Make the game go for 10 cities and show a score and "report card"
-- All users to pick what categories are a taken into the city's score
+- Allow users to pick what categories are a taken into the city's score
 
 ## Project Schedule
 
@@ -142,6 +145,10 @@ You are **responsible** for scheduling time with your squad to seek approval for
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
+
+Inline-style: 
+![alt text]("https://app.lucidchart.com/invitations/accept/34543396-9a26-41f0-b57e-39eebdf69147")
+
 
 ## Timeframes
 
