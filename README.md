@@ -149,10 +149,10 @@ Include a full list of features that have been prioritized based on the `Time an
 | Explore Data | M | 2hrs| hrs | hrs |
 | JS - Summary/Score Sections | H | 4hrs| hrs | hrs |
 | JS - Details Section | M | 2hrs| hrs | hrs |
-| JS - Form | H | 2hrs| hrs | hrs |
+| JS - Form | H | 3hrs| hrs | hrs |
 | CSS - Summary/Score Sections | H | 4hrs| hrs | hrs |
 | CSS - Details Section | M | 2hrs| hrs | hrs |
-| CSS - Form | H | 2hrs| hrs | hrs |
+| CSS - Form | H | 3hrs| hrs | hrs |
 | Category Selection | L | 4hrs| hrs | hrs |
 | Add Brewdog | L | 3hrs| hrs | hrs |
 | Add City Comparison | L | 8hrs | hrs | hrs |
