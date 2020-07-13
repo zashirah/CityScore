@@ -145,9 +145,8 @@ You are **responsible** for scheduling time with your squad to seek approval for
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
-
-Inline-style: 
-![alt text]("https://app.lucidchart.com/publicSegments/view/a8f61106-aeda-4c6a-96a8-850a1aab7a76/image.png")
+ 
+![alt text]("https://app.lucidchart.com/publicSegments/view/a8f61106-aeda-4c6a-96a8-850a1aab7a76/image.png Priority Matrix")
 
 
 ## Timeframes
