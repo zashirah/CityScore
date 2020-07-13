@@ -4,11 +4,7 @@
 
 ## Project Description
 
-A game to determine how well you know a city based on Teleport's quality of life data.   
-
-or
-
-A 1 page site to lookup and retreive a city's quality of life data (and other basic stats) from Teleport's app. 
+A game to determine how well you know a city based on Teleport's quality of life data.
 
 ## API and Data Sample
 
