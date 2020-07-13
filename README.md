@@ -105,7 +105,7 @@ API: https://api.teleport.org/api/cities/
 
 ## Wireframes
 
-Mireframe: https://wireframe.cc/atSHeo
+Wireframe: https://wireframe.cc/atSHeo
 
 ### MVP/PostMVP 
 
