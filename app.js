@@ -1,4 +1,12 @@
 // GET selection from Continent Dropdown on Updated button
+const submitContinentButton = document.querySelector('#updateCityList');
+submitContinentButton.addEventListener('click', (e) => {
+     e.preventDefault();
+     const submittedContinent = document.querySelector('#continents').value
+     console.log(submittedContinent);
+});
+
+
 
 
 // GET Urban Areas List based on Continent dropdown
