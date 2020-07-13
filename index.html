@@ -6,7 +6,8 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
      <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-     <script src='api-exploration.js' defer></script>
+     <!-- <script src='api-exploration.js' defer></script> -->
+     <script src='app.js' defer></script>
      <title>CityScore</title>
 </head>
 
@@ -17,14 +18,18 @@
 
      <div class='select-form'>
           <form action='submit'>
-               <select name="continents" id="continents">
-                    <option value="all">All Continents</option>
-                    <option value="africa">Africa</option>
-                    <option value="asia">Asia</option>
-                    <option value="europe">Europe</option>
-                    <option value="north-america">North America</option>
-                    <option value="sourth-america">South America</option>
-               </select>
+               <section class='continent-section'>
+                    <select name="continents" id="continents">
+                         <option value="all">All Continents</option>
+                         <option value="africa">Africa</option>
+                         <option value="asia">Asia</option>
+                         <option value="europe">Europe</option>
+                         <option value="north-america">North America</option>
+                         <option value="sourth-america">South America</option>
+                    </select>
+                    <input type="submit" name="updateCityList" id="updateCityList">
+               </section>
+          
                <select name="cities" id="cities">
                     <option value="">Select City</option>
                </select>

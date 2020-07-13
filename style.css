@@ -9,6 +9,15 @@ select {
      margin: 5px;
 }
 
+.continent-section {
+     display: flex;
+     width: 95vw;
+}
+
+#continents {
+     flex-grow: 2;
+}
+
 .meter { 
      width: 40%;
 	height: 10px;  /* Can be anything */
@@ -43,6 +52,8 @@ select {
      align-self: center;
      /* top: 50%; */
 }
+
+
 
 .all-progress-bars {
      display: flex;
