@@ -10,7 +10,7 @@ select {
 }
 
 .meter { 
-     width: 25vw;
+     width: 15vw;
 	height: 10px;  /* Can be anything */
 	position: relative;
 	background: #555;
@@ -47,11 +47,50 @@ select {
      justify-content: space-around;
 }
 
+.all-progress-bars > div {
+     margin: 0px 5px;
+}
+
 .progress-bar {
      display: flex;
      flex-direction: row nowrap;
+     justify-content: space-between;
+     border: solid black 1px;
+     margin: 1px;
+     padding: 3px;
 }
 
 .qol-category {
      margin: 0;
+     font-size: 12px;
+}
+
+.summary,
+.score,
+.select-form,
+.details {
+     width: 95vw;
+     border: solid grey 2px;
+     margin: 5px 0px;
+}
+
+.summary-detail {
+     margin-left: 10px;
+     margin-right: 5px;  
+}
+
+.center-text {
+     text-align: center;
+     margin: 10px;
+}
+
+ul {
+     list-style: none;
+     margin: 0px 5px;
+     padding: 5px;
+}
+
+.details-output p{
+     font-size: 15px;
+     margin: 4px;
 }

@@ -15,7 +15,7 @@
           <h1>CityScore</h1>
      </header>
 
-     <section>
+     <div class='select-form'>
           <form action='submit'>
                <select name="continents" id="continents">
                     <option value="all">All Continents</option>
@@ -29,126 +29,162 @@
                     <option value="">Select City</option>
                </select>
           </form>
-     </section>
+     </div>
 
-     <section class='summary-score'>
-          <section class='summary'>
-               <h3 class='city-name'>Atlanta</h3>
-               <h4 class='country-name'>United States of America</h4>
-               <h4 class='population'>500,000</h4>
-               <p class='city-summary'>This is a bunch of text that owuld normally be to summarize the city based on the
-                    api pull</p>
-          </section>
-          <section class='score'>
-               <h3 class='score-header'>Quality of Life Results</h3>
-               <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
-               <div class='all-progress-bars'>
-                    <div class='left-progress-bars'>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Housing</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Cost of Living</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Startups</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Venture Capital</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Travel Connectivity</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Commute</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Business Freedom</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Safety</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+     <div class='summary'>
+          <h3 class='city-name summary-detail'>Atlanta</h3>
+          <h4 class='country-name summary-detail'>United States of America</h4>
+          <h4 class='population summary-detail'>500,000</h4>
+          <p class='city-summary summary-detail'>This is a bunch of text that owuld normally be to summarize the city
+               based on the
+               api pull</p>
+     </div>
+     <div class='score'>
+          <h3 class='score-header center-text'>Quality of Life Results</h3>
+          <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
+          <div class='all-progress-bars'>
+               <div class='left-progress-bars'>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Housing</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
                     </div>
-                    <div class='right-progress-bars'>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Healthcare</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Cost of Living</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Education</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Startups</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Environmental Quality</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Venture Capital</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Economy</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Travel Connectivity</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Taxation</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Commute</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Internet Access</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Business Freedom</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>BLeisure & Culture</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
-                         </div>
-                         <div class='progress-bar'>
-                              <p class='qol-category'>Tolerance</p>
-                              <div class="meter">
-                                   <span style="width: 25%"></span>
-                              </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Safety</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
                          </div>
                     </div>
                </div>
+               <div class='right-progress-bars'>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Healthcare</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Education</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Env. Quality</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Economy</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Taxation</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Internet Access</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Leisure & Culture</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Tolerance</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
+                    <div class='progress-bar'>
+                         <p class='qol-category'>Outdoors</p>
+                         <div class="meter">
+                              <span style="width: 25%"></span>
+                         </div>
+                    </div>
                </div>
-
-          </section>
-     </section>
-
+          </div>
+     </div>
+     <div class='details'>
+          <div class='detail-form'>
+               <h4 class='details-header center-text'>Get More Details Below</h4>
+               <form action="">
+                    <select name="detail-categories" id="detail-categories">
+                         <option value=''>Select Category</option>
+                         <option value='city-size'>City Size</option>
+                         <option value='cost-of-livint'>Cost of Living</option>
+                         <option value='job-market'>Job Market</option>
+                         <option value='startups'>Startups</option>
+                         <option value='venture-capital'>Venture Capital</option>
+                    </select>
+               </form>
+          </div>
+          <div class='details-output'>
+               <ul>
+                    <li class='detail-output'>
+                         <p>This is result info 1</p>
+                    </li>
+                    <li class='detail-output'>
+                         <p>This is result info 2</p>
+                    </li>
+                    <li class='detail-output'>
+                         <p>This is result info 3</p>
+                    </li>
+                    <li class='detail-output'>
+                         <p>This is result info 4</p>
+                    </li>
+                    <li class='detail-output'>
+                         <p>This is result info 5</p>
+                    </li>
+               </ul>
+          </div>
+     </div>
 </body>
 
 </html>
