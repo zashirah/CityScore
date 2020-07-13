@@ -157,9 +157,17 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| Base HTML | M | 2hrs| hrs | hrs |
+| Base CSS | M | 2hrs| hrs | hrs |
+| Explore Data | H | 2hrs| hrs | hrs |
+| Base JS (inc. dynamic HTML) | H | 4hrs| hrs | hrs |
+| Gamify | M | 4hrs| hrs | hrs |
+| Style Form | M | 3hrs| hrs | hrs |
+| Style Scores | H | 3hrs| hrs | hrs |
+| Add Extra Filters | L | 3hrs| hrs | hrs |
+| Add Category Selection | L | 4hrs| hrs | hrs |
+| Add Brewdog | L | 3hrs| hrs | hrs |
+| Total | n/a | 32hrs| hrs | hrs |
 
 ## Code Snippet
 
