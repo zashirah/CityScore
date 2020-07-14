@@ -104,13 +104,13 @@ async function getUrbanAreaBasic(urbanArea) {
 // PARSE urban area basic data
 // for summary area - Full Name
 
-const putFullName = (data) => {
+const putFullName = (basicData) => {
      const summaryDiv = document.querySelector('.summary');
      // data = data.replace(/ /g, '-')
 
      const newFullName = document.createElement('h3');
      newFullName.className = 'full-name summary-detail';
-     newFullName.innerText = data.full_name;
+     newFullName.innerText = basicData.full_name;
 
      summaryDiv.append(newFullName);
 }
@@ -123,7 +123,7 @@ async function getUrbanAreaScores(urbanArea) {
           const response = await axios.get(url);
           data = response.data;
           console.log(data);
-          return data
+          return putQolScoreAndSummary(data);
      } catch (error) {
           console.log(error);
      }
@@ -131,7 +131,24 @@ async function getUrbanAreaScores(urbanArea) {
 
 // PARSE urban area scores data
 // for summary area - QOL Score, Summary
-// 
+const putQolScoreAndSummary = (scoreData) => {
+     // console.log(data)
+     const summaryParentDiv = document.querySelector('.summary');
+
+     const newQol = document.createElement('h4');
+     newQol.className = 'qol-score summary-detail';
+     newQol.innerText = Math.round(scoreData.teleport_city_score);
+
+     const summaryDiv = document.querySelector('.summary-div');
+     summaryDiv.innerHTML = scoreData.summary;
+     console.log(scoreData.summary);
+
+     const summaryP = document.querySelector('.summary-div p');
+     summaryP.className = 'city-summary summary-detail';
+
+     summaryParentDiv.append(newQol);
+     summaryParentDiv.append(summaryDiv);
+}
 
 
 
@@ -142,7 +159,7 @@ async function getUrbanAreaDetails(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.categories;
-          console.log(data);
+          // console.log(data);
           return data;
      } catch (error) {
           console.log(error);
