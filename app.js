@@ -22,7 +22,7 @@ submitCityButton.addEventListener('click', (e) => {
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
-     console.log(city);
+     // console.log(city);
      getUrbanAreaBasic(city);
      getUrbanAreaDetails(city);
      getUrbanAreaScores(city);
@@ -53,7 +53,7 @@ async function getUrbanAreaList(continent) {
                // console.log(data);
                return addListToCityDropdown(data)
           } catch (error) {
-               console.log(error);
+               console.log('Error', error);
           };
      } else {
           const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
@@ -99,7 +99,7 @@ async function getUrbanAreaBasic(urbanArea) {
           // console.log(data);
           return putFullName(data);
      } catch (error) {
-          console.log(error);
+          console.log('Error', error);
      }
 };
 
@@ -125,9 +125,10 @@ async function getUrbanAreaScores(urbanArea) {
           const response = await axios.get(url);
           data = response.data;
           // console.log(data);
-          return putQolScoreAndSummary(data);
+          return putQolScoreAndSummary(data),
+               putScores(data);
      } catch (error) {
-          console.log(error);
+          console.log('Error', error);
      }
 };
 
@@ -154,6 +155,55 @@ const putQolScoreAndSummary = (scoreData) => {
      summaryParentDiv.append(summaryDiv);
 }
 
+// PARSE urban areas scores data 
+// for scores area
+const putScores = (scoreData) => {
+     // console.log(scoreData);
+     let i = 0;
+     const leftProgressBar = document.querySelector('.left-progress-bars');
+     const rightProgressBar = document.querySelector('.right-progress-bars');
+     scoreData.categories.forEach(score => {
+          // console.log(score);
+
+          const newProgressBar = document.createElement('div');
+          newProgressBar.className = 'progress-bar';
+
+          const newCategoryName = document.createElement('p');
+          newCategoryName.className = 'qol-category';
+          newCategoryName.innerText = score.name;
+
+          const newMeter = document.createElement('div');
+          newMeter.classList.toggle('meter');
+
+          const newMeterSpan = document.createElement('span');
+          const scorePct = score.score_out_of_10 * 10;
+          if (scorePct <= 33) {
+               newMeter.classList.toggle('red');
+          } else if (scorePct > 33 && scorePct <= 67) {
+               newMeter.classList.toggle('orange');
+          };
+          // console.log(scorePct);
+          newMeterSpan.style.width = `${scorePct}%`;
+
+          if (i < 8) {
+               // add to left column
+               leftProgressBar.append(newProgressBar);
+               newProgressBar.append(newCategoryName);
+               newProgressBar.append(newMeter);
+               newMeter.append(newMeterSpan);
+          } else {
+               // add to right column
+               rightProgressBar.append(newProgressBar);
+               newProgressBar.append(newCategoryName);
+               newProgressBar.append(newMeter);
+               newMeter.append(newMeterSpan);
+          }
+
+          i++
+     });
+}
+
+
 // GET details data
 async function getUrbanAreaDetails(urbanArea) {
      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/details/`;
@@ -163,7 +213,7 @@ async function getUrbanAreaDetails(urbanArea) {
           // console.log(data);
           return putPopulation(data);
      } catch (error) {
-          console.log(error);
+          console.log('Error', error);
      }
 };
 
@@ -188,14 +238,14 @@ async function getTotalCityCount(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.count;
-          console.log(data);
+          // console.log(data);
           return putCitiesCount(data);
      } catch (error) {
-          console.log(error);
+          console.log('Error', error);
      }
 };
 
-// PARSE urban area details data
+// PARSE urban area cities
 // for summary area - total city count 
 const putCitiesCount = (urbanCitiesData) => {
      const summaryParentDiv = document.querySelector('.summary');
@@ -208,4 +258,5 @@ const putCitiesCount = (urbanCitiesData) => {
 
      summaryParentDiv.append(newCityCount);
 }
+
 

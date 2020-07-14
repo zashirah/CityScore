@@ -45,7 +45,6 @@ select {
      order: 5;
 }
 
-
 .summary,
 .score,
 .select-form,
@@ -95,7 +94,15 @@ select {
      /* top: 50%; */
 }
 
-
+.orange > span {
+     background-color: #f1a165;
+     background-image: linear-gradient(to bottom, #f1a165, #f36d0a);
+}
+   
+.red > span {
+     background-color: #f0a3a3;
+     background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
+}
 
 .all-progress-bars {
      display: flex;
