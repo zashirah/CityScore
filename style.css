@@ -7,6 +7,7 @@ form {
 select {
      padding: 5px;
      margin: 5px;
+     width: 50vw;
 }
 
 .continent-section, 
@@ -19,6 +20,7 @@ select {
 #continents,
 #city,
 #detail-categories {
+     max-width: 50vw;
      flex-grow: 2;
 }
 
