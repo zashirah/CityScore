@@ -1,3 +1,26 @@
+/* General */
+.center-text {
+     text-align: center;
+     margin: 10px;
+}
+
+/* Lists */
+ul {
+     /* list-style: none; */
+     margin: 2px 5px;
+     padding: 10px;
+}
+
+.summary,
+.score,
+.select-form,
+.details {
+     width: 95vw;
+     border: solid grey 2px;
+     margin: 5px 0px;
+}
+
+/* Form Stylings */
 form {
      display: flex;
      flex-direction: column;
@@ -7,7 +30,7 @@ form {
 select {
      padding: 5px;
      margin: 5px;
-     width: 50vw;
+     /* width: 50vw; */
 }
 
 .continent-section, 
@@ -17,13 +40,14 @@ select {
      width: 95vw;
 }
 
-#continents,
+/* #continents,
 #city,
 #detail-categories {
-     max-width: 50vw;
+     max-width: 40vw;
      flex-grow: 2;
-}
+} */
 
+/* Summary Section */
 .summary {
      display: flex;
      flex-flow: row wrap;
@@ -44,18 +68,6 @@ select {
 .full-name {
      order: 2;
 }
-/* 
-.population {
-     order: 4;
-}
-
-.city-count {
-     order: 5;
-}
-
-.qol-score {
-     order: 6;
-} */
 
 .summary-div {
      order: 3;
@@ -65,20 +77,13 @@ select {
      order: 4;
 }
 
-.summary,
-.score,
-.select-form,
-.details {
-     width: 95vw;
-     border: solid grey 2px;
-     margin: 5px 0px;
-}
-
 .summary-detail {
      margin-left: 10px;
      margin-right: 5px;  
 }
 
+
+/* Progress Bar Area */
 /* Progress Bar Code (meter): https://css-tricks.com/css3-progress-bars/ */ 
 .meter { 
      width: 40%;
@@ -151,19 +156,14 @@ select {
      width: 50%
 }
 
-
-.center-text {
-     text-align: center;
-     margin: 10px;
+/* Details Seciton */
+.details-output {
+     margin-left: 10px;
 }
 
-ul {
-     /* list-style: none; */
-     margin: 2px 5px;
-     padding: 10px;
-}
-
-.details-output p{
-     font-size: 12px;
-     margin: 4px; 
-}
+.details-output p{ 
+     /* font-size: 12px; */
+     margin-left: 10px;
+     margin-right: 5px;  
+     margin: 0;
+} 
