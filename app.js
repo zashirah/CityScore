@@ -14,24 +14,6 @@ submitContinentButton.addEventListener('click', (e) => {
      getUrbanAreaList(submittedContinent);
 });
 
-// GET Selected City as input for the Summary section
-const submitCityButton = document.querySelector('#submit-city');
-submitCityButton.addEventListener('click', (e) => {
-     e.preventDefault();
-
-     removeSummaryDetails();
-     removeProgressBars();
-
-     let city = document.querySelector('#city').value;
-     city = city.replace(/ /g, '-');
-     city = city.toLowerCase();
-     // console.log(city);
-     getUrbanAreaBasic(city);
-     getUrbanAreaDetails(city);
-     getUrbanAreaScores(city);
-     getTotalCityCount(city);
-});
-
 
 // REMOVE summary details for each new submit
 const removeSummaryDetails = () => {
@@ -49,6 +31,40 @@ const removeProgressBars = () => {
           progressBar.remove();
      });
 };
+
+// GET Selected City as input for the Summary section
+const submitCityButton = document.querySelector('#submit-city');
+submitCityButton.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     // removeSummaryDetails();
+     // removeProgressBars();
+
+     let city = document.querySelector('#city').value;
+     city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
+     // console.log(city);
+     // getUrbanAreaBasic(city);
+     // getUrbanAreaDetails(city, 'summary');
+     // getUrbanAreaScores(city);
+     // getTotalCityCount(city);
+});
+
+
+// GET details section selection
+const submitDetailButton = document.querySelector('#submit-detail');
+submitDetailButton.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     let city = document.querySelector('#city').value;
+     city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
+
+     const category = document.querySelector('#detail-categories').value;
+     console.log(category);
+
+     getUrbanAreaDetails(city, 'details', category);
+})
 
 
 //  WORKING - want to add section for using "enter" on the list to submit the change
@@ -226,13 +242,17 @@ const putScores = (scoreData) => {
 
 
 // GET details data
-async function getUrbanAreaDetails(urbanArea) {
+async function getUrbanAreaDetails(urbanArea, section, category = false) {
      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/details/`;
      try {
           const response = await axios.get(url);
           data = response.data.categories;
           // console.log(data);
-          return putPopulation(data);
+          if (section === 'summary') {
+               return putPopulation(data)
+          } else {
+               return putCategoryDetails(data, category);
+          }
      } catch (error) {
           console.log('Error', error);
      }
@@ -252,6 +272,50 @@ const putPopulation = (detailData) => {
 
      summaryParentDiv.append(newPopulation);
 }
+
+
+// PARSE urban area details data
+// for details area
+
+const putMinorities = (minorityData) => {
+     const detailsUl = document.querySelector('.details-ul');
+     // console.log(minorityData.data);
+     minorityData.data.forEach(minorityStat => {
+          // console.log(minorityStat)
+          const newStatLi = document.createElement('li')
+          newStatLi.className = 'detail-output';
+
+          const newStatP = document.createElement('p');
+          newStatP.className = 'details-output-text';
+
+          if (minorityStat.type === 'string') {
+               newStatP.innerText = `${minorityStat.label}: ${minorityStat.string_value}`
+          } else if (minorityStat.type === 'float') {
+               newStatP.innerText = `${minorityStat.label}: ${minorityStat.float_value}`
+          } else {
+               newStatP.innerText = `${minorityStat.label}: ${minorityStat.percent_value}`
+          }
+          // newStatP.innerText = minorityStat
+
+          detailsUl.append(newStatLi);
+          newStatLi.append(newStatP);
+
+     });
+}
+
+
+const putCategoryDetails = (detailData, category) => {
+
+     detailData.forEach(detail => {
+          if (category === detail.id) {
+               if (category === 'MINORITIES') {
+                    putMinorities(detail);
+               }
+          }
+
+     });
+}
+
 
 // GET total number of cities: 
 async function getTotalCityCount(urbanArea) {
@@ -279,5 +343,4 @@ const putCitiesCount = (urbanCitiesData) => {
 
      summaryParentDiv.append(newCityCount);
 }
-
 

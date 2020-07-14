@@ -10,13 +10,15 @@ select {
 }
 
 .continent-section, 
-.city-section {
+.city-section,
+.detail-section {
      display: flex;
      width: 95vw;
 }
 
 #continents,
-#city {
+#city,
+#detail-categories {
      flex-grow: 2;
 }
 
@@ -143,6 +145,6 @@ ul {
 }
 
 .details-output p{
-     font-size: 15px;
+     font-size: 12px;
      margin: 4px;
 }
