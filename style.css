@@ -36,12 +36,13 @@ select {
 .image-div img {
      max-width: 40vw; 
      margin: 0px;
+     flex-shrink: 5;
 } 
 
 .full-name {
      order: 2;
 }
-
+/* 
 .population {
      order: 4;
 }
@@ -52,10 +53,14 @@ select {
 
 .qol-score {
      order: 6;
-}
+} */
 
 .summary-div {
      order: 3;
+}
+
+.summary-list {
+     order: 4;
 }
 
 .summary,
@@ -72,6 +77,7 @@ select {
      margin-right: 5px;  
 }
 
+/* Progress Bar Code (meter): https://css-tricks.com/css3-progress-bars/ */ 
 .meter { 
      width: 40%;
 	height: 10px;  /* Can be anything */
@@ -150,9 +156,9 @@ select {
 }
 
 ul {
-     list-style: none;
-     margin: 0px 5px;
-     padding: 5px;
+     /* list-style: none; */
+     margin: 2px 5px;
+     padding: 10px;
 }
 
 .details-output p{

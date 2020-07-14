@@ -180,10 +180,11 @@ async function getUrbanAreaScores(urbanArea) {
 const putQolScoreAndSummary = (scoreData) => {
 
      const summaryParentDiv = document.querySelector('.summary');
+     const summaryList = document.querySelector('.summary-list');
 
-     const newQol = document.createElement('p');
-     newQol.className = 'qol-score summary-detail';
-     newQol.innerText = `The Total Quality of Life Score is ${Math.round(scoreData.teleport_city_score)}`;
+     const newQol = document.createElement('li');
+     newQol.className = 'qol-score summary-detail summary-list-item';
+     newQol.innerText = `Total Quality of Life Score: ${Math.round(scoreData.teleport_city_score)}`;
 
      const summaryDiv = document.querySelector('.summary-div');
      summaryDiv.innerHTML = scoreData.summary;
@@ -193,9 +194,10 @@ const putQolScoreAndSummary = (scoreData) => {
           summaryP.className = 'city-summary summary-detail';
      });
 
-     summaryParentDiv.append(newQol);
+     summaryList.append(newQol);
      summaryParentDiv.append(summaryDiv);
 }
+
 
 // PARSE urban areas scores data 
 // for scores area
@@ -286,16 +288,21 @@ async function getUrbanAreaDetails(urbanArea, section, category = false) {
 // PARSE urban area details data
 // for summary area - Population 
 const putPopulation = (detailData) => {
-     const summaryParentDiv = document.querySelector('.summary');
+     const summaryList = document.querySelector('.summary-list');
 
      const population = detailData[1].data[0].float_value.toFixed(2);
      const populationDensity = detailData[1].data[2].float_value.toFixed(1);
 
-     const newPopulation = document.createElement('p');
-     newPopulation.className = 'population summary-detail';
-     newPopulation.innerText = `The population is ${population} million people with a population density of ${populationDensity} people/sq. km`;
+     const newPopulation = document.createElement('li');
+     newPopulation.className = 'population summary-detail summary-list-item';
+     newPopulation.innerText = `Population: ${population} million`;
 
-     summaryParentDiv.append(newPopulation);
+     const newPopulationDensity = document.createElement('li');
+     newPopulationDensity.className = 'population-density summary-detail summary-list-item';
+     newPopulationDensity.innerText = `Population Density: ${populationDensity} people / sq.km`;
+
+     summaryList.append(newPopulation);
+     summaryList.append(newPopulationDensity);
 }
 
 
@@ -345,13 +352,13 @@ async function getTotalCityCount(urbanArea) {
 // PARSE urban area cities
 // for summary area - total city count 
 const putCitiesCount = (urbanCitiesData) => {
-     const summaryParentDiv = document.querySelector('.summary');
+     const summaryParentDiv = document.querySelector('.summary-list');
 
      const cityCount = urbanCitiesData;
 
-     const newCityCount = document.createElement('p');
-     newCityCount.className = 'city-count summary-detail';
-     newCityCount.innerText = `There are ${cityCount} total cities in the Urban Area`;
+     const newCityCount = document.createElement('li');
+     newCityCount.className = 'city-count summary-detail summary-list-item';
+     newCityCount.innerText = `Total Cities: ${cityCount}`;
 
      summaryParentDiv.append(newCityCount);
 }
