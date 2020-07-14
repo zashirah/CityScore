@@ -19,6 +19,9 @@ const submitCityButton = document.querySelector('#submit-city');
 submitCityButton.addEventListener('click', (e) => {
      e.preventDefault();
 
+     removeSummaryDetails();
+     removeProgressBars();
+
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
@@ -28,6 +31,24 @@ submitCityButton.addEventListener('click', (e) => {
      getUrbanAreaScores(city);
      getTotalCityCount(city);
 });
+
+
+// REMOVE summary details for each new submit
+const removeSummaryDetails = () => {
+     const summaryDetails = document.querySelectorAll('.summary-detail');
+     summaryDetails.forEach(summaryDetail => {
+          summaryDetail.remove();
+     });
+};
+
+
+// REMOVE progress bars for each new submit
+const removeProgressBars = () => {
+     const progressBars = document.querySelectorAll('.progress-bar');
+     progressBars.forEach(progressBar => {
+          progressBar.remove();
+     });
+};
 
 
 //  WORKING - want to add section for using "enter" on the list to submit the change
@@ -46,8 +67,8 @@ submitCityButton.addEventListener('click', (e) => {
 // GET Urban Areas List based on Continent dropdown
 async function getUrbanAreaList(continent) {
      if (continent === 'all') {
-          const allUrl = 'https://api.teleport.org/api/urban_areas';
           try {
+               const allUrl = 'https://api.teleport.org/api/urban_areas';
                const response = await axios.get(allUrl);
                data = response.data._links['ua:item'];
                // console.log(data);
@@ -56,8 +77,8 @@ async function getUrbanAreaList(continent) {
                console.log('Error', error);
           };
      } else {
-          const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
           try {
+               const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
                const response = await axios.get(continetUrl);
                // data = response.data_links['ua:item'];
                data = response.data._links['ua:items'];
