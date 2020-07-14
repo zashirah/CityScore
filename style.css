@@ -1,4 +1,8 @@
 /* General */
+body {
+     font-family: 'Lato', sans-serif;
+}
+
 .center-text {
      text-align: center;
      margin: 10px;
@@ -8,7 +12,7 @@
 ul {
      /* list-style: none; */
      margin: 2px 5px;
-     padding: 10px;
+     padding: 5px 10px;
 }
 
 .summary,
@@ -55,14 +59,12 @@ select {
 
 .image-div {
      order: 1;
-     flex-shrink: 5;
      margin: 5px;
 }
 
 .image-div img {
      max-width: 40vw; 
      margin: 0px;
-     flex-shrink: 5;
 } 
 
 .full-name {
@@ -80,6 +82,10 @@ select {
 .summary-detail {
      margin-left: 10px;
      margin-right: 5px;  
+}
+
+.city-summary {
+     margin: 5px;
 }
 
 
