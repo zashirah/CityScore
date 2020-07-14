@@ -9,12 +9,14 @@ select {
      margin: 5px;
 }
 
-.continent-section {
+.continent-section, 
+.city-section {
      display: flex;
      width: 95vw;
 }
 
-#continents {
+#continents,
+#city {
      flex-grow: 2;
 }
 

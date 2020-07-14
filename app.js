@@ -3,16 +3,27 @@ const submitContinentButton = document.querySelector('#updateCityList');
 submitContinentButton.addEventListener('click', (e) => {
      e.preventDefault();
 
-     const options = document.querySelectorAll('#cities option');
-     console.log(options);
+     const options = document.querySelectorAll('#city option');
+     // console.log(options);
      options.forEach(option => {
           option.remove();
      });
 
      const submittedContinent = document.querySelector('#continents').value
-     console.log(submittedContinent)
+     // console.log(submittedContinent)
      getUrbanAreaList(submittedContinent);
 });
+
+// GET Selected City as input for the Summary section
+const submitCityButton = document.querySelector('#submit-city');
+submitCityButton.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     const city = document.querySelector('#city').value;
+     console.log(city);
+})
+
+
 
 
 //  WORKING - want to add section for using "enter" on the list to submit the change
@@ -58,13 +69,13 @@ getUrbanAreaList();
 
 // PUT Urban Area List in the City Dropdown
 function addListToCityDropdown(list) {
-     const cityDropdown = document.querySelector('#cities');
+     const cityDropdown = document.querySelector('#city');
      const newOptionDefault = document.createElement('option');
      newOptionDefault.innerText = 'Select City';
      cityDropdown.append(newOptionDefault);
 
      list.forEach(listElement => {
-          const cityDropdown = document.querySelector('#cities');
+          const cityDropdown = document.querySelector('#city');
 
           const newOption = document.createElement('option');
           newOption.value = listElement.name;
@@ -75,5 +86,4 @@ function addListToCityDropdown(list) {
 };
 
 
-// GET Selected City
 
