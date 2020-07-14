@@ -21,10 +21,12 @@ submitCityButton.addEventListener('click', (e) => {
 
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
      console.log(city);
      getUrbanAreaBasic(city);
      getUrbanAreaDetails(city);
      getUrbanAreaScores(city);
+     getTotalCityCount(city);
 });
 
 
@@ -59,7 +61,7 @@ async function getUrbanAreaList(continent) {
                const response = await axios.get(continetUrl);
                // data = response.data_links['ua:item'];
                data = response.data._links['ua:items'];
-               console.log(data);
+               // console.log(data);
                return addListToCityDropdown(data)
           } catch (error) {
                console.log(error);
@@ -90,7 +92,7 @@ function addListToCityDropdown(list) {
 
 // GET basic data
 async function getUrbanAreaBasic(urbanArea) {
-     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/`;
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/`;
      try {
           const response = await axios.get(url);
           data = response.data;
@@ -118,7 +120,7 @@ const putFullName = (basicData) => {
 
 // GET scores data
 async function getUrbanAreaScores(urbanArea) {
-     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/scores/`;
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/scores/`;
      try {
           const response = await axios.get(url);
           data = response.data;
@@ -152,16 +154,13 @@ const putQolScoreAndSummary = (scoreData) => {
      summaryParentDiv.append(summaryDiv);
 }
 
-
-
-
 // GET details data
 async function getUrbanAreaDetails(urbanArea) {
-     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/details/`;
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/details/`;
      try {
           const response = await axios.get(url);
           data = response.data.categories;
-          console.log(data);
+          // console.log(data);
           return putPopulation(data);
      } catch (error) {
           console.log(error);
@@ -183,7 +182,30 @@ const putPopulation = (detailData) => {
      summaryParentDiv.append(newPopulation);
 }
 
+// GET total number of cities: 
+async function getTotalCityCount(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/cities/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.count;
+          console.log(data);
+          return putCitiesCount(data);
+     } catch (error) {
+          console.log(error);
+     }
+};
 
+// PARSE urban area details data
+// for summary area - total city count 
+const putCitiesCount = (urbanCitiesData) => {
+     const summaryParentDiv = document.querySelector('.summary');
 
+     const cityCount = urbanCitiesData;
 
-// can get total number of cities from this url: https://api.teleport.org/api/urban_areas/slug:auckland/cities/
+     const newCityCount = document.createElement('p');
+     newCityCount.className = 'city-count summary-detail';
+     newCityCount.innerText = `There are ${cityCount} total cities in the Urban Area`;
+
+     summaryParentDiv.append(newCityCount);
+}
+

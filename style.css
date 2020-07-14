@@ -33,12 +33,16 @@ select {
      order: 2;
 }
 
-.qol-score {
+.city-count {
      order: 3;
 }
 
-.summary-div {
+.qol-score {
      order: 4;
+}
+
+.summary-div {
+     order: 5;
 }
 
 
