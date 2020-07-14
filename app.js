@@ -2,6 +2,13 @@
 const submitContinentButton = document.querySelector('#updateCityList');
 submitContinentButton.addEventListener('click', (e) => {
      e.preventDefault();
+
+     const options = document.querySelectorAll('#cities option');
+     console.log(options);
+     options.forEach(option => {
+          option.remove();
+     });
+
      const submittedContinent = document.querySelector('#continents').value
      console.log(submittedContinent)
      getUrbanAreaList(submittedContinent);
@@ -37,8 +44,9 @@ async function getUrbanAreaList(continent) {
           const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
           try {
                const response = await axios.get(continetUrl);
-               data = response.data_links['ua:item'];
-               // console.log(data);
+               // data = response.data_links['ua:item'];
+               data = response.data._links['ua:items'];
+               console.log(data);
                return addListToCityDropdown(data)
           } catch (error) {
                console.log(error);
@@ -50,6 +58,11 @@ getUrbanAreaList();
 
 // PUT Urban Area List in the City Dropdown
 function addListToCityDropdown(list) {
+     const cityDropdown = document.querySelector('#cities');
+     const newOptionDefault = document.createElement('option');
+     newOptionDefault.innerText = 'Select City';
+     cityDropdown.append(newOptionDefault);
+
      list.forEach(listElement => {
           const cityDropdown = document.querySelector('#cities');
 
