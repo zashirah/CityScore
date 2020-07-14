@@ -149,7 +149,7 @@ Include a full list of features that have been prioritized based on the `Time an
 | Explore Data | M | 2hrs| 1.5hrs | hrs |
 | JS - Summary/Score Sections | H | 4hrs | hrs | hrs |
 | JS - Details Section | M | 2hrs| hrs | hrs |
-| JS - Form | H | 3hrs| hrs | hrs |
+| JS - Form | H | 3hrs| 1hrs | hrs |
 | CSS - Summary/Score Sections | H | 4hrs| hrs | hrs |
 | CSS - Details Section | M | 2hrs| hrs | hrs |
 | CSS - Form | H | 3hrs| hrs | hrs |
