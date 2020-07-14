@@ -33,6 +33,7 @@ const removeProgressBars = () => {
 };
 
 
+// REMOVE details li's from the bottom
 const removeDetails = () => {
      const details = document.querySelectorAll('.detail-output');
      details.forEach(detail => {
@@ -57,6 +58,7 @@ submitCityButton.addEventListener('click', (e) => {
      getUrbanAreaDetails(city, 'summary');
      getUrbanAreaScores(city);
      getTotalCityCount(city);
+     getImages(city);
 });
 
 
@@ -244,17 +246,22 @@ const putScores = (scoreData) => {
 
 // PUT details dropdown from urban areas details
 const putDetailsDropdown = (detailData) => {
-     console.log(detailData);
+     // console.log(detailData);
      const detailsDropdown = document.querySelector('#detail-categories');
 
-     detailData.forEach(detail => {
-          const newOption = document.createElement('option');
-          newOption.value = detail.id;
-          newOption.innerText = detail.label;
+     const detailOptions = document.querySelectorAll('.detail-option');
+     console.log(detailOptions.length)
+     if (detailOptions.length <= 1) {
 
-          detailsDropdown.append(newOption);
-     });
+          detailData.forEach(detail => {
+               const newOption = document.createElement('option');
+               newOption.value = detail.id;
+               newOption.innerText = detail.label;
+               newOption.className = 'detail-option';
 
+               detailsDropdown.append(newOption);
+          });
+     }
 }
 
 
@@ -349,3 +356,30 @@ const putCitiesCount = (urbanCitiesData) => {
      summaryParentDiv.append(newCityCount);
 }
 
+// GET images 
+async function getImages(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/images/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.photos[0].image;
+          console.log(data);
+          return putImages(data);
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+const putImages = (imageData) => {
+     const imgDiv = document.querySelector('.image-div');
+
+     const newMobileImage = document.createElement('img');
+     newMobileImage.src = imageData.mobile;
+     newMobileImage.className = 'mobile-image summary-detail'
+
+     // const newWebImage = document.createElement('img');
+     // newWebImage.src = imageData.web;
+     // newWebImage.className = 'web-image';
+
+     imgDiv.append(newMobileImage);
+     // imgDiv.append(newWebImage);
+}

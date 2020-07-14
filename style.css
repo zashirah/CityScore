@@ -24,27 +24,38 @@ select {
 
 .summary {
      display: flex;
-     flex-flow: column nowrap;
+     flex-flow: row wrap;
 }
+
+.image-div {
+     order: 1;
+     flex-shrink: 5;
+     margin: 5px;
+}
+
+.image-div img {
+     max-width: 40vw; 
+     margin: 0px;
+} 
 
 .full-name {
-     order: 1;
-}
-
-.population {
      order: 2;
 }
 
-.city-count {
-     order: 3;
-}
-
-.qol-score {
+.population {
      order: 4;
 }
 
-.summary-div {
+.city-count {
      order: 5;
+}
+
+.qol-score {
+     order: 6;
+}
+
+.summary-div {
+     order: 3;
 }
 
 .summary,
