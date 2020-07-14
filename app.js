@@ -41,10 +41,25 @@ const removeDetails = () => {
      });
 }
 
+
+// TOGGLE ON the components that aren't showing
+const toggleOnSections = () => {
+     const noShowers = document.querySelectorAll('.no-show')
+
+     if (noShowers) {
+          noShowers.forEach(noShower => {
+               noShower.classList.toggle('no-show');
+          });
+     }
+}
+
+
 // GET Selected City as input for the Summary section
 const submitCityButton = document.querySelector('#submit-city');
 submitCityButton.addEventListener('click', (e) => {
      e.preventDefault();
+
+     toggleOnSections();
 
      removeSummaryDetails();
      removeProgressBars();
@@ -369,7 +384,7 @@ async function getImages(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.photos[0].image;
-          console.log(data);
+          // console.log(data);
           return putImages(data);
      } catch (error) {
           console.log('Error', error);
