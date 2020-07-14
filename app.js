@@ -19,7 +19,9 @@ const submitCityButton = document.querySelector('#submit-city');
 submitCityButton.addEventListener('click', (e) => {
      e.preventDefault();
 
-     const city = document.querySelector('#city').value;
+     let city = document.querySelector('#city').value;
+     city = city.replace(/ /g, '-');
+     console.log(city);
      getUrbanAreaBasic(city);
      getUrbanAreaDetails(city);
      getUrbanAreaScores(city);
@@ -92,16 +94,26 @@ async function getUrbanAreaBasic(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data;
-          console.log(data);
-          return data
+          // console.log(data);
+          return putFullName(data);
      } catch (error) {
           console.log(error);
      }
 };
 
 // PARSE urban area basic data
-// for summary area - Full Name, 
-// 
+// for summary area - Full Name
+
+const putFullName = (data) => {
+     const summaryDiv = document.querySelector('.summary');
+     // data = data.replace(/ /g, '-')
+
+     const newFullName = document.createElement('h3');
+     newFullName.className = 'full-name summary-detail';
+     newFullName.innerText = data.full_name;
+
+     summaryDiv.append(newFullName);
+}
 
 
 // GET scores data
@@ -139,3 +151,8 @@ async function getUrbanAreaDetails(urbanArea) {
 
 // PARSE urban area details data
 // for summary area - City, State, Country, Population 
+
+
+
+
+// can get total number of cities from this url: https://api.teleport.org/api/urban_areas/slug:auckland/cities/

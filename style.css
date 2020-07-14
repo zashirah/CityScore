@@ -20,6 +20,42 @@ select {
      flex-grow: 2;
 }
 
+.summary {
+     display: flex;
+     flex-flow: column nowrap;
+}
+
+.full-name {
+     order: 1;
+}
+
+.population {
+     order: 2;
+}
+
+.qol-score {
+     order: 3;
+}
+
+.city-summary {
+     order: 4;
+}
+
+
+.summary,
+.score,
+.select-form,
+.details {
+     width: 95vw;
+     border: solid grey 2px;
+     margin: 5px 0px;
+}
+
+.summary-detail {
+     margin-left: 10px;
+     margin-right: 5px;  
+}
+
 .meter { 
      width: 40%;
 	height: 10px;  /* Can be anything */
@@ -83,19 +119,6 @@ select {
      width: 50%
 }
 
-.summary,
-.score,
-.select-form,
-.details {
-     width: 95vw;
-     border: solid grey 2px;
-     margin: 5px 0px;
-}
-
-.summary-detail {
-     margin-left: 10px;
-     margin-right: 5px;  
-}
 
 .center-text {
      text-align: center;
