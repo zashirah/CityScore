@@ -32,22 +32,31 @@ const removeProgressBars = () => {
      });
 };
 
+
+const removeDetails = () => {
+     const details = document.querySelectorAll('.detail-output');
+     details.forEach(detail => {
+          detail.remove();
+     });
+}
+
 // GET Selected City as input for the Summary section
 const submitCityButton = document.querySelector('#submit-city');
 submitCityButton.addEventListener('click', (e) => {
      e.preventDefault();
 
-     // removeSummaryDetails();
-     // removeProgressBars();
+     removeSummaryDetails();
+     removeProgressBars();
+     removeDetails();
 
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
-     // console.log(city);
-     // getUrbanAreaBasic(city);
-     // getUrbanAreaDetails(city, 'summary');
-     // getUrbanAreaScores(city);
-     // getTotalCityCount(city);
+
+     getUrbanAreaBasic(city);
+     getUrbanAreaDetails(city, 'summary');
+     getUrbanAreaScores(city);
+     getTotalCityCount(city);
 });
 
 
@@ -56,12 +65,13 @@ const submitDetailButton = document.querySelector('#submit-detail');
 submitDetailButton.addEventListener('click', (e) => {
      e.preventDefault();
 
+     removeDetails();
+
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
 
      const category = document.querySelector('#detail-categories').value;
-     console.log(category);
 
      getUrbanAreaDetails(city, 'details', category);
 })
@@ -87,7 +97,6 @@ async function getUrbanAreaList(continent) {
                const allUrl = 'https://api.teleport.org/api/urban_areas';
                const response = await axios.get(allUrl);
                data = response.data._links['ua:item'];
-               // console.log(data);
                return addListToCityDropdown(data)
           } catch (error) {
                console.log('Error', error);
@@ -96,9 +105,7 @@ async function getUrbanAreaList(continent) {
           try {
                const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
                const response = await axios.get(continetUrl);
-               // data = response.data_links['ua:item'];
                data = response.data._links['ua:items'];
-               // console.log(data);
                return addListToCityDropdown(data)
           } catch (error) {
                console.log(error);
@@ -133,7 +140,6 @@ async function getUrbanAreaBasic(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data;
-          // console.log(data);
           return putFullName(data);
      } catch (error) {
           console.log('Error', error);
@@ -142,10 +148,8 @@ async function getUrbanAreaBasic(urbanArea) {
 
 // PARSE urban area basic data
 // for summary area - Full Name
-
 const putFullName = (basicData) => {
      const summaryDiv = document.querySelector('.summary');
-     // data = data.replace(/ /g, '-')
 
      const newFullName = document.createElement('h3');
      newFullName.className = 'full-name summary-detail';
@@ -161,7 +165,7 @@ async function getUrbanAreaScores(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data;
-          // console.log(data);
+
           return putQolScoreAndSummary(data),
                putScores(data);
      } catch (error) {
@@ -172,7 +176,7 @@ async function getUrbanAreaScores(urbanArea) {
 // PARSE urban area scores data
 // for summary area - QOL Score, Summary
 const putQolScoreAndSummary = (scoreData) => {
-     // console.log(data)
+
      const summaryParentDiv = document.querySelector('.summary');
 
      const newQol = document.createElement('p');
@@ -181,7 +185,6 @@ const putQolScoreAndSummary = (scoreData) => {
 
      const summaryDiv = document.querySelector('.summary-div');
      summaryDiv.innerHTML = scoreData.summary;
-     // console.log(scoreData.summary);
 
      const summaryPs = document.querySelectorAll('.summary-div p');
      summaryPs.forEach(summaryP => {
@@ -195,12 +198,10 @@ const putQolScoreAndSummary = (scoreData) => {
 // PARSE urban areas scores data 
 // for scores area
 const putScores = (scoreData) => {
-     // console.log(scoreData);
      let i = 0;
      const leftProgressBar = document.querySelector('.left-progress-bars');
      const rightProgressBar = document.querySelector('.right-progress-bars');
      scoreData.categories.forEach(score => {
-          // console.log(score);
 
           const newProgressBar = document.createElement('div');
           newProgressBar.className = 'progress-bar';
@@ -219,7 +220,7 @@ const putScores = (scoreData) => {
           } else if (scorePct > 33 && scorePct <= 67) {
                newMeter.classList.toggle('orange');
           };
-          // console.log(scorePct);
+
           newMeterSpan.style.width = `${scorePct}%`;
 
           if (i < 8) {
@@ -241,6 +242,22 @@ const putScores = (scoreData) => {
 }
 
 
+// PUT details dropdown from urban areas details
+const putDetailsDropdown = (detailData) => {
+     console.log(detailData);
+     const detailsDropdown = document.querySelector('#detail-categories');
+
+     detailData.forEach(detail => {
+          const newOption = document.createElement('option');
+          newOption.value = detail.id;
+          newOption.innerText = detail.label;
+
+          detailsDropdown.append(newOption);
+     });
+
+}
+
+
 // GET details data
 async function getUrbanAreaDetails(urbanArea, section, category = false) {
      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/details/`;
@@ -249,7 +266,8 @@ async function getUrbanAreaDetails(urbanArea, section, category = false) {
           data = response.data.categories;
           // console.log(data);
           if (section === 'summary') {
-               return putPopulation(data)
+               return putPopulation(data),
+                    putDetailsDropdown(data);
           } else {
                return putCategoryDetails(data, category);
           }
@@ -276,46 +294,33 @@ const putPopulation = (detailData) => {
 
 // PARSE urban area details data
 // for details area
-
-const putMinorities = (minorityData) => {
-     const detailsUl = document.querySelector('.details-ul');
-     // console.log(minorityData.data);
-     minorityData.data.forEach(minorityStat => {
-          // console.log(minorityStat)
-          const newStatLi = document.createElement('li')
-          newStatLi.className = 'detail-output';
-
-          const newStatP = document.createElement('p');
-          newStatP.className = 'details-output-text';
-
-          if (minorityStat.type === 'string') {
-               newStatP.innerText = `${minorityStat.label}: ${minorityStat.string_value}`
-          } else if (minorityStat.type === 'float') {
-               newStatP.innerText = `${minorityStat.label}: ${minorityStat.float_value}`
-          } else {
-               newStatP.innerText = `${minorityStat.label}: ${minorityStat.percent_value}`
-          }
-          // newStatP.innerText = minorityStat
-
-          detailsUl.append(newStatLi);
-          newStatLi.append(newStatP);
-
-     });
-}
-
-
 const putCategoryDetails = (detailData, category) => {
-
+     const detailsUl = document.querySelector('.details-ul');
      detailData.forEach(detail => {
-          if (category === detail.id) {
-               if (category === 'MINORITIES') {
-                    putMinorities(detail);
-               }
+          if (detail.id === category) {
+               detail.data.forEach(detailStat => {
+                    const newStatLi = document.createElement('li')
+                    newStatLi.className = 'detail-output';
+
+                    const newStatP = document.createElement('p');
+                    newStatP.className = 'details-output-text';
+
+                    if (detailStat.type === 'string') {
+                         newStatP.innerText = `${detailStat.label}: ${detailStat.string_value}`
+                    } else if (detailStat.type === 'float') {
+                         newStatP.innerText = `${detailStat.label}: ${detailStat.float_value}`
+                    } else if (detailStat.type === 'percent') {
+                         newStatP.innerText = `${detailStat.label}: ${(detailStat.percent_value * 100).toFixed(2)}%`
+                    } else if (detailStat.type === 'currency_dollar') {
+                         newStatP.innerText = `${detailStat.label}: $${(detailStat.currency_dollar_value).toFixed(2)}`
+                    }
+
+                    detailsUl.append(newStatLi);
+                    newStatLi.append(newStatP);
+               });
           }
-
      });
-}
-
+};
 
 // GET total number of cities: 
 async function getTotalCityCount(urbanArea) {

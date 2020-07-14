@@ -148,7 +148,7 @@ Include a full list of features that have been prioritized based on the `Time an
 | Base CSS | M | 2hrs| 1.5hrs | hrs |
 | Explore Data | M | 2hrs| 1.5hrs | hrs |
 | JS - Summary/Score Sections | H | 4hrs | 2.5hrs | hrs |
-| JS - Details Section | M | 2hrs| hrs | hrs |
+| JS - Details Section | M | 2hrs| 2hrs | hrs |
 | JS - Form | H | 3hrs| 2hrs | hrs |
 | CSS - Summary/Score Sections | H | 4hrs| hrs | hrs |
 | CSS - Details Section | M | 2hrs| hrs | hrs |
