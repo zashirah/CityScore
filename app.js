@@ -122,7 +122,7 @@ async function getUrbanAreaScores(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data;
-          console.log(data);
+          // console.log(data);
           return putQolScoreAndSummary(data);
      } catch (error) {
           console.log(error);
@@ -135,16 +135,18 @@ const putQolScoreAndSummary = (scoreData) => {
      // console.log(data)
      const summaryParentDiv = document.querySelector('.summary');
 
-     const newQol = document.createElement('h4');
+     const newQol = document.createElement('p');
      newQol.className = 'qol-score summary-detail';
-     newQol.innerText = Math.round(scoreData.teleport_city_score);
+     newQol.innerText = `The Total Quality of Life Score is ${Math.round(scoreData.teleport_city_score)}`;
 
      const summaryDiv = document.querySelector('.summary-div');
      summaryDiv.innerHTML = scoreData.summary;
-     console.log(scoreData.summary);
+     // console.log(scoreData.summary);
 
-     const summaryP = document.querySelector('.summary-div p');
-     summaryP.className = 'city-summary summary-detail';
+     const summaryPs = document.querySelectorAll('.summary-div p');
+     summaryPs.forEach(summaryP => {
+          summaryP.className = 'city-summary summary-detail';
+     });
 
      summaryParentDiv.append(newQol);
      summaryParentDiv.append(summaryDiv);
@@ -159,15 +161,27 @@ async function getUrbanAreaDetails(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.categories;
-          // console.log(data);
-          return data;
+          console.log(data);
+          return putPopulation(data);
      } catch (error) {
           console.log(error);
      }
 };
 
 // PARSE urban area details data
-// for summary area - City, State, Country, Population 
+// for summary area - Population 
+const putPopulation = (detailData) => {
+     const summaryParentDiv = document.querySelector('.summary');
+
+     const population = detailData[1].data[0].float_value.toFixed(2);
+     const populationDensity = detailData[1].data[2].float_value.toFixed(1);
+
+     const newPopulation = document.createElement('p');
+     newPopulation.className = 'population summary-detail';
+     newPopulation.innerText = `The population is ${population} million people with a population density of ${populationDensity} people/sq. km`;
+
+     summaryParentDiv.append(newPopulation);
+}
 
 
 
