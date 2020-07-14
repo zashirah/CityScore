@@ -20,10 +20,10 @@ submitCityButton.addEventListener('click', (e) => {
      e.preventDefault();
 
      const city = document.querySelector('#city').value;
-     console.log(city);
-})
-
-
+     getUrbanAreaBasic(city);
+     getUrbanAreaDetails(city);
+     getUrbanAreaScores(city);
+});
 
 
 //  WORKING - want to add section for using "enter" on the list to submit the change
@@ -86,4 +86,56 @@ function addListToCityDropdown(list) {
 };
 
 
+// GET basic data
+async function getUrbanAreaBasic(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data;
+          console.log(data);
+          return data
+     } catch (error) {
+          console.log(error);
+     }
+};
 
+// PARSE urban area basic data
+// for summary area - Full Name, 
+// 
+
+
+// GET scores data
+async function getUrbanAreaScores(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/scores/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data;
+          console.log(data);
+          return data
+     } catch (error) {
+          console.log(error);
+     }
+};
+
+// PARSE urban area scores data
+// for summary area - QOL Score, Summary
+// 
+
+
+
+
+// GET details data
+async function getUrbanAreaDetails(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea.toLowerCase()}/details/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.categories;
+          console.log(data);
+          return data;
+     } catch (error) {
+          console.log(error);
+     }
+};
+
+// PARSE urban area details data
+// for summary area - City, State, Country, Population 
