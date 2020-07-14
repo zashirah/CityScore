@@ -1,6 +1,13 @@
 /* General */
 body {
      font-family: 'Lato', sans-serif;
+     background-color: rgb(53,63,98);
+     color: rgb(216,214,234); 
+}
+
+button {
+     margin: 5px; 
+     background-color: rgb(216,214,234);
 }
 
 .center-text {
@@ -20,7 +27,7 @@ ul {
 .select-form,
 .details {
      width: 95vw;
-     border: solid grey 2px;
+     border: solid rgb(216,214,234) 2px;
      margin: 5px 0px;
 }
 
@@ -34,6 +41,7 @@ form {
 select {
      padding: 5px;
      margin: 5px;
+     background-color: rgb(216,214,234);
      /* width: 50vw; */
 }
 
