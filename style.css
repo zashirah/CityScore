@@ -32,13 +32,13 @@ li {
 
 /* turning these off to test compare */
 
-/* .no-show {
+.no-show {
      display: none;
 }
 
 .no-show-1 {
      display: none;
-} */
+}
 
 .summary,
 .score,
@@ -102,7 +102,7 @@ button {
 }
 
 .full-name,
-full-name-compare {
+.full-name-compare {
      padding: 5px;
      margin: 0px 0px 10px 0px;
 }
@@ -200,37 +200,28 @@ full-name-compare {
 /* turnning off for compare */
 
 /* compare section */
-/* .compare {
-     width: 50px;
-} */
-
-/*this is the same as the above when the above is placed correct*/
-.select-form,
-.summary,
-.score,
-.details,
-.select-form-compare,
-.summary-compare,
-.score-compare,
-.details-compare  {
-     width: 50vw;
+.compare {
+     width: 49vw;
+     margin: 5px;
 }
 
-/* .no-show-1-compare,
+.side-by-side {
+     display: flex;
+     flex-flow: nowrap row;
+}
+
+/*this is the same as the above when the above is placed correct*/
+
+.no-show-1-compare,
 .no-show-compare {
      display: none;
-} */
+}
 
 
 
 /* MEDIA QUERIES */
 
 @media (min-width: 480px) {
-     .side-by-side {
-          display: flex;
-          flex-flow: nowrap row;
-     }
-
      li, 
      .city-summary, 
      .qol-category,

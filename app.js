@@ -1,3 +1,6 @@
+
+
+
 // TOGGLE ON the cities component
 const toggleOnSection1 = () => {
      const noShowers = document.querySelectorAll('.no-show-1')
@@ -446,7 +449,7 @@ const toggleOnSection1Compare = () => {
 
      if (noShowers) {
           noShowers.forEach(noShower => {
-               noShower.classList.toggle('no-show-1');
+               noShower.classList.toggle('no-show-1-compare');
           });
      }
 }
@@ -457,7 +460,7 @@ submitContinentButtonCompare.addEventListener('click', (e) => {
      // console.log(1)
      e.preventDefault();
 
-     toggleOnSection1();
+     toggleOnSection1Compare();
 
      // console.log(2)
      const options = document.querySelectorAll('#city-compare option');
