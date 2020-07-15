@@ -1,7 +1,21 @@
+// TOGGLE ON the cities component
+const toggleOnSection1 = () => {
+     const noShowers = document.querySelectorAll('.no-show-1')
+
+     if (noShowers) {
+          noShowers.forEach(noShower => {
+               noShower.classList.toggle('no-show-1');
+          });
+     }
+}
+
+
 // GET selection from Continent Dropdown on Updated button
 const submitContinentButton = document.querySelector('#updateCityList');
 submitContinentButton.addEventListener('click', (e) => {
      e.preventDefault();
+
+     toggleOnSection1();
 
      const options = document.querySelectorAll('#city option');
      // console.log(options);
@@ -52,6 +66,7 @@ const toggleOnSections = () => {
           });
      }
 }
+
 
 
 // GET Selected City as input for the Summary section

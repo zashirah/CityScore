@@ -22,6 +22,10 @@ ul {
      display: none;
 }
 
+.no-show-1 {
+     display: none;
+}
+
 .summary,
 .score,
 .select-form,
