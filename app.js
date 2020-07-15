@@ -110,7 +110,6 @@ submitDetailButton.addEventListener('click', (e) => {
 
 
 //  WORKING - want to add section for using "enter" on the list to submit the change
-
 // const continentDropdown = document.querySelector('#continents');
 
 // continentDropdown.addEventListener('keyup', (e) => {
@@ -185,7 +184,7 @@ const putFullName = (basicData) => {
 
      const newFullName = document.createElement('h3');
      newFullName.className = 'full-name summary-detail';
-     newFullName.innerText = basicData.full_name;
+     newFullName.innerText = basicData.full_name.toUpperCase();
 
      fullNameSummaryDiv.append(newFullName);
 }
@@ -222,7 +221,7 @@ const putQolScoreAndSummary = (scoreData) => {
 
      const newQol = document.createElement('li');
      newQol.className = 'qol-score summary-detail summary-list-item';
-     newQol.innerText = `Total Quality of Life Score: ${Math.round(scoreData.teleport_city_score)}`;
+     newQol.innerText = `TOTAL QUALITY OF LIFE SCORE: ${Math.round(scoreData.teleport_city_score)}`;
 
      // summaryParentDiv.append(summaryDiv);
      summaryList.append(newQol);
@@ -242,7 +241,11 @@ const putScores = (scoreData) => {
 
           const newCategoryName = document.createElement('p');
           newCategoryName.className = 'qol-category';
-          newCategoryName.innerText = score.name;
+          if (score.name === 'Environmental Quality') {
+               newCategoryName.innerText = 'Quality of Environment';
+          } else {
+               newCategoryName.innerText = score.name;
+          }
 
           const newMeter = document.createElement('div');
           newMeter.classList.toggle('meter');
@@ -325,11 +328,11 @@ const putPopulation = (detailData) => {
 
      const newPopulation = document.createElement('li');
      newPopulation.className = 'population summary-detail summary-list-item';
-     newPopulation.innerText = `Population: ${population} million`;
+     newPopulation.innerText = `POPULATION: ${population} million`;
 
      const newPopulationDensity = document.createElement('li');
      newPopulationDensity.className = 'population-density summary-detail summary-list-item';
-     newPopulationDensity.innerText = `Population Density: ${populationDensity} people / sq.km`;
+     newPopulationDensity.innerText = `POPULATION DENSITY: ${populationDensity} people / sq.km`;
 
      summaryList.append(newPopulation);
      summaryList.append(newPopulationDensity);
@@ -351,17 +354,17 @@ const putCategoryDetails = (detailData, category) => {
                     newStatP.className = 'details-output-text';
 
                     if (detailStat.type === 'string') {
-                         newStatP.innerText = `${detailStat.label}: ${detailStat.string_value}`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.string_value}`
                     } else if (detailStat.type === 'float') {
-                         newStatP.innerText = `${detailStat.label}: ${(detailStat.float_value).toFixed(2)}`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.float_value).toFixed(2)}`
                     } else if (detailStat.type === 'percent') {
-                         newStatP.innerText = `${detailStat.label}: ${(detailStat.percent_value * 100).toFixed(2)}%`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.percent_value * 100).toFixed(2)}%`
                     } else if (detailStat.type === 'currency_dollar') {
-                         newStatP.innerText = `${detailStat.label}: $${(detailStat.currency_dollar_value).toFixed(2)}`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: $${(detailStat.currency_dollar_value).toFixed(2)}`
                     } else if (detailStat.type === 'int') {
-                         newStatP.innerText = `${detailStat.label}: ${detailStat.int_value}`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.int_value}`
                     } else if (detailStat.type === 'url') {
-                         newStatP.innerText = `${detailStat.label}: ${detailStat.url_value}`
+                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.url_value}`
                     }
 
                     detailsUl.append(newStatLi);
@@ -393,7 +396,7 @@ const putCitiesCount = (urbanCitiesData) => {
 
      const newCityCount = document.createElement('li');
      newCityCount.className = 'city-count summary-detail summary-list-item';
-     newCityCount.innerText = `Total Cities: ${cityCount}`;
+     newCityCount.innerText = `TOTAL CITIES: ${cityCount}`;
 
      summaryParentDiv.append(newCityCount);
 }
