@@ -28,20 +28,21 @@ li {
      list-style-position: inside;
 }
 
-.no-show {
+/* turning these off to test compare */
+
+/* .no-show {
      display: none;
 }
 
 .no-show-1 {
      display: none;
-}
+} */
 
 .summary,
 .score,
 .select-form,
 .details {
      width: 95vw;
-     /* border: solid rgb(216,214,234) 2px; */
      border-radius: 10px;
      margin: 5px 0px;
      background-color: rgb(78,88,123);
@@ -60,7 +61,6 @@ button {
      margin: 5px;
      background-color: rgb(216,214,234);
      border-radius: 5px;
-     /* width: 50vw; */
 }
 
 .continent-section, 
@@ -82,7 +82,6 @@ button {
      width: 40vw; 
      max-width: 150px;
      height: auto;
-     /* float: left; */
      margin: 0px;
 } 
 
@@ -113,8 +112,6 @@ button {
 	padding: 2px;
      box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
      top: 50%;
-     /* flex-grow: 2;
-     max-width: 60%; */
 }
 
 .meter > span {
@@ -136,8 +133,6 @@ button {
      position: relative;
      overflow: hidden;
      align-self: center;
-     /* flex-grow: 2; */
-     /* top: 50%; */
 }
 
 .orange > span {
@@ -165,7 +160,6 @@ button {
      display: flex;
      flex-direction: row nowrap;
      justify-content: space-between;
-     /* border: solid black 1px; */
      align-items: center;
      margin: 1px;
      padding: 3px;
@@ -184,10 +178,36 @@ button {
 }
 
 
+/* turnning off for compare */
+
+/* compare section */
+/* .compare {
+     width: 50px;
+} */
+
+/* this is the same as the above when the above is placed correct
+.select-form,
+.summary,
+.score,
+.details {
+     width: 50vw;
+}
+
+/* .no-show-1-compare,
+.no-show-compare {
+     display: none;
+} */
+
+
 
 /* MEDIA QUERIES */
 
 @media (min-width: 480px) {
+     .side-by-side {
+          display: flex;
+          flex-flow: nowrap row;
+     }
+
      li, 
      .city-summary, 
      .qol-category{
@@ -199,30 +219,12 @@ button {
 	     height: 15px;  /* Can be anything */
      }
 
-     .continent-section,
+     /* turning off for compare */
+     /* .continent-section,
      .city-section,
      .detail-section {
-          justify-content: center
-     }
-
-
-     /* body {
-          display: flex;
-          flex-flow: column wrap;
-          height: 130vh;
-     }
-
-
-     .select-form,
-     .summary,
-     .score {
-          width: 70vw;
-          margin: 
-     }
-
-     .details {
-          height: 100vh;
-          width: 28vw;
+          justify-content: center;
      } */
+
 
 }

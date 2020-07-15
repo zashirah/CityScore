@@ -413,6 +413,8 @@ async function getImages(urbanArea) {
 const putImages = (imageData) => {
      const imgDiv = document.querySelector('.image-div');
 
+     console.log(imageData);
+
      const newMobileImage = document.createElement('img');
      newMobileImage.src = imageData.mobile;
      newMobileImage.alt = 'city image';

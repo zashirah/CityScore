@@ -16,70 +16,143 @@
           <h1>CityScore</h1>
      </header>
 
-     <div class='select-form'>
-          <form action='submit'>
-               <section class='continent-section'>
-                    <select name="continents" id="continents">
-                         <option value="all">All Continents</option>
-                         <option value="AF">Africa</option>
-                         <option value="AS">Asia</option>
-                         <option value="EU">Europe</option>
-                         <option value="NA">North America</option>
-                         <option value="OC">Oceana</option>
-                         <option value="SA">South America</option>
-                    </select>
-                    <button id='updateCityList'>Update List</button>
-               </section>
-               <section class='city-section no-show-1'>
-                    <select name="city" id="city" class='no-show-1'>
-                         <option value="" class='no-show-1'>Select City</option>
-                    </select>
-                    <button id='submit-city' class='no-show-1'>Submit</button>
-               </section>
 
-          </form>
-     </div>
 
-     <div class='summary no-show'>
-          <!-- <div class='image-full-name-summary'> -->
-          <div class='full-name-summary'>
-               <div class='image-div no-show'></div>
-               <div class='summary-header-div no-show'></div>
-               <div class='summary-div no-show'></div>
-               <div class='summary-list-div no-show'>
-                    <ul class='summary-list no-show'></ul>
+     <div class='side-by-side'>
+          <div class="left-side">
+               <div class='select-form'>
+                    <form action='submit'>
+                         <section class='continent-section left-form'>
+                              <select name="continents" id="continents">
+                                   <option value="all">All Continents</option>
+                                   <option value="AF">Africa</option>
+                                   <option value="AS">Asia</option>
+                                   <option value="EU">Europe</option>
+                                   <option value="NA">North America</option>
+                                   <option value="OC">Oceana</option>
+                                   <option value="SA">South America</option>
+                              </select>
+                              <button id='updateCityList'>Update List</button>
+                         </section>
+                         <section class='city-section no-show-1 left-form'>
+                              <select name="city" id="city" class='no-show-1'>
+                                   <option value="" class='no-show-1'>Select City</option>
+                              </select>
+                              <button id='submit-city' class='no-show-1'>Submit</button>
+                         </section>
+
+                    </form>
                </div>
 
-          </div>
-          <!-- </div> -->
-     </div>
-     <div class='score no-show'>
-          <h3 class='score-header center-text'>QUALITY OF LIFE RESULTS</h3>
-          <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
-          <div class='all-progress-bars'>
-               <div class='left-progress-bars'>
+               <div class='summary no-show'>
+                    <!-- <div class='image-full-name-summary'> -->
+                    <div class='full-name-summary'>
+                         <div class='image-div no-show'></div>
+                         <div class='summary-header-div no-show'></div>
+                         <div class='summary-div no-show'></div>
+                         <div class='summary-list-div no-show'>
+                              <ul class='summary-list no-show'></ul>
+                         </div>
+
+                    </div>
+                    <!-- </div> -->
                </div>
-               <div class='right-progress-bars'>
+               <div class='score no-show'>
+                    <h3 class='score-header center-text'>QUALITY OF LIFE RESULTS</h3>
+                    <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
+                    <div class='all-progress-bars'>
+                         <div class='left-progress-bars'>
+                         </div>
+                         <div class='right-progress-bars'>
+                         </div>
+                    </div>
+               </div>
+               <div class='details no-show'>
+                    <div class='detail-form'>
+                         <h3 class='details-header center-text'>MORE DETAILS</h3>
+                         <form action="">
+                              <section class='detail-section left-form'>
+                                   <select name="detail-categories" id="detail-categories">
+                                        <option class='detail-option' value=''>Select Category</option>
+                                   </select>
+                                   <button id='submit-detail'>Submit</button>
+                              </section>
+                         </form>
+                    </div>
+                    <div class='details-output'>
+                         <ul class='details-ul'>
+                         </ul>
+                    </div>
+               </div>
+          </div>
+          <div class="right-side">
+               <div class='select-form'>
+                    <form action='submit'>
+                         <section class='continent-section left-form'>
+                              <select name="continents" id="continents-right">
+                                   <option value="all">All Continents</option>
+                                   <option value="AF">Africa</option>
+                                   <option value="AS">Asia</option>
+                                   <option value="EU">Europe</option>
+                                   <option value="NA">North America</option>
+                                   <option value="OC">Oceana</option>
+                                   <option value="SA">South America</option>
+                              </select>
+                              <button id='updateCityList'>Update List</button>
+                         </section>
+                         <section class='city-section no-show-1-compare left-form'>
+                              <select name="city" id="city" class='no-show-1-compare'>
+                                   <option value="" class='no-show-1-compare'>Select City</option>
+                              </select>
+                              <button id='submit-city' class='no-show-1-compare'>Submit</button>
+                         </section>
+
+                    </form>
+               </div>
+
+               <div class='summary no-show-compare'>
+                    <!-- <div class='image-full-name-summary'> -->
+                    <div class='full-name-summary'>
+                         <div class='image-div no-show-compare'></div>
+                         <div class='summary-header-div no-show-compare'></div>
+                         <div class='summary-div no-show-compare'></div>
+                         <div class='summary-list-div no-show-compare'>
+                              <ul class='summary-list no-show-compare'></ul>
+                         </div>
+
+                    </div>
+                    <!-- </div> -->
+               </div>
+               <div class='score no-show-compare'>
+                    <h3 class='score-header center-text'>QUALITY OF LIFE RESULTS</h3>
+                    <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
+                    <div class='all-progress-bars'>
+                         <div class='left-progress-bars'>
+                         </div>
+                         <div class='right-progress-bars'>
+                         </div>
+                    </div>
+               </div>
+               <div class='details no-show-compare'>
+                    <div class='detail-form'>
+                         <h3 class='details-header center-text'>MORE DETAILS</h3>
+                         <form action="">
+                              <section class='detail-section left-form'>
+                                   <select name="detail-categories" id="detail-categories">
+                                        <option class='detail-option' value=''>Select Category</option>
+                                   </select>
+                                   <button id='submit-detail'>Submit</button>
+                              </section>
+                         </form>
+                    </div>
+                    <div class='details-output'>
+                         <ul class='details-ul'>
+                         </ul>
+                    </div>
                </div>
           </div>
      </div>
-     <div class='details no-show'>
-          <div class='detail-form'>
-               <h3 class='details-header center-text'>MORE DETAILS</h3>
-               <form action="">
-                    <section class='detail-section'>
-                         <select name="detail-categories" id="detail-categories">
-                              <option class='detail-option' value=''>Select Category</option>
-                         </select>
-                         <button id='submit-detail'>Submit</button>
-                    </section>
-               </form>
-          </div>
-          <div class='details-output'>
-               <ul class='details-ul'>
-               </ul>
-          </div>
-     </div>
+
 </body>
 
 </html>
