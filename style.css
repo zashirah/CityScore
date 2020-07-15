@@ -83,12 +83,16 @@ button {
      margin: 0px;
 } 
 
-.full-name {
+/* .full-name {
      order: 2;
-}
+} */
 
-.summary-div {
+/* .summary-div {
      order: 3;
+} */
+
+.full-name-summary {
+     order: 2;
 }
 
 .summary-list {

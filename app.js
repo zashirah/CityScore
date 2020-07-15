@@ -181,13 +181,13 @@ async function getUrbanAreaBasic(urbanArea) {
 // PARSE urban area basic data
 // for summary area - Full Name
 const putFullName = (basicData) => {
-     const summaryDiv = document.querySelector('.summary');
+     const fullNameSummaryDiv = document.querySelector('.full-name-summary');
 
      const newFullName = document.createElement('h3');
      newFullName.className = 'full-name summary-detail';
      newFullName.innerText = basicData.full_name;
 
-     summaryDiv.append(newFullName);
+     fullNameSummaryDiv.append(newFullName);
 }
 
 
@@ -209,7 +209,7 @@ async function getUrbanAreaScores(urbanArea) {
 // for summary area - QOL Score, Summary
 const putQolScoreAndSummary = (scoreData) => {
 
-     const summaryParentDiv = document.querySelector('.summary');
+     const summaryParentDiv = document.querySelector('.full-name-summary');
      const summaryList = document.querySelector('.summary-list');
 
      const newQol = document.createElement('li');
