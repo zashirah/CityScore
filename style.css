@@ -11,7 +11,8 @@ header {
      align-items: center;
 }
 
-.compare-button {
+.compare-button,
+.single-button {
      display: none;
      height: 29px;
 }
@@ -224,7 +225,8 @@ button {
 /*this is the same as the above when the above is placed correct*/
 
 .no-show-1-compare,
-.no-show-compare {
+.no-show-compare,
+.no-show-compare-button {
      display: none;
 }
 
@@ -251,6 +253,17 @@ button {
           /* display: none; */
           display: block;
           height: 29px;
+     }
+
+     .single-button {
+          display: block;
+          height: 29px;
+     }
+
+     .no-show-1-compare,
+     .no-show-compare,
+     .no-show-compare-button {
+          display: none;
      }
 
      /* turning off for compare */

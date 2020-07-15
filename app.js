@@ -1,21 +1,44 @@
 // LAUNCH compare view
+const toggleClassList = (identifyingClass, toggleClass) => {
+     const element = document.querySelector(identifyingClass);
+     element.classList.toggle(toggleClass)
+}
+
 const compareButton = document.querySelector('.compare-button');
-compareButton.addEventListener('click', () => {
-     const mainDiv = document.querySelector('.main-div');
-     mainDiv.classList.toggle('side-by-side');
+compareButton.addEventListener('click', (e) => {
+     e.preventDefault();
 
-     const selectForm = document.querySelector('.select-form');
-     selectForm.classList.toggle('compare');
-     const summary = document.querySelector('.summary');
-     summary.classList.toggle('compare');
-     const score = document.querySelector('.score');
-     score.classList.toggle('compare');
-     const details = document.querySelector('.details');
-     details.classList.toggle('compare');
+     toggleClassList('.main-div', 'side-by-side');
+     toggleClassList('.select-form', 'compare');
+     toggleClassList('.summary', 'compare');
+     toggleClassList('.score', 'compare');
+     toggleClassList('.details', 'compare');
+     toggleClassList('.city-section-compare', 'no-show-compare-button');
+     // toggleClassList('.summary-compare', 'no-show-compare-button');
+     // toggleClassList('.score-compare', 'no-show-compare-button');
+     // toggleClassList('.details-compare', 'no-show-compare-button');
+     toggleClassList('.select-form-compare', 'no-show-compare-button');
+     toggleClassList('.single-button', 'no-show-compare-button');
+     toggleClassList('.compare-button', 'no-show-compare-button');
 
-     const selectFormCompare = document.querySelector('.select-form-compare');
-     // console.log(selectFormCompare);
-     selectFormCompare.classList.toggle('no-show-compare');
+});
+
+const singleButton = document.querySelector('.single-button');
+singleButton.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     toggleClassList('.main-div', 'side-by-side');
+     toggleClassList('.select-form', 'compare');
+     toggleClassList('.summary', 'compare');
+     toggleClassList('.score', 'compare');
+     toggleClassList('.details', 'compare');
+     toggleClassList('.city-section-compare', 'no-show-compare-button');
+     toggleClassList('.summary-compare', 'no-show-compare');
+     toggleClassList('.score-compare', 'no-show-compare');
+     toggleClassList('.details-compare', 'no-show-compare');
+     toggleClassList('.select-form-compare', 'no-show-compare-button');
+     toggleClassList('.single-button', 'no-show-compare-button');
+     toggleClassList('.compare-button', 'no-show-compare-button');
 });
 
 
@@ -541,22 +564,16 @@ const toggleOnSectionsCompare = () => {
 const submitCityButtonCompare = document.querySelector('#submit-city-compare');
 submitCityButtonCompare.addEventListener('click', (e) => {
      e.preventDefault();
-     console.log(1)
-
 
      toggleOnSectionsCompare();
-     console.log(2)
 
      removeSummaryDetailsCompare();
      removeProgressBarsCompare();
      removeDetailsCompare();
-     console.log(3)
 
      let city = document.querySelector('#city-compare').value;
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
-     console.log(4)
-     console.log(city)
 
      getImagesCompare(city);
      getUrbanAreaBasicCompare(city);
