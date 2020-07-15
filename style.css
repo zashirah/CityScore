@@ -61,58 +61,32 @@ button {
      width: 95vw;
 }
 
-/* #continents,
-#city,
-#detail-categories {
-     max-width: 40vw;
-     flex-grow: 2;
-} */
-
 /* Summary Section */
-/* .summary {
-     display: flex;
-     flex-flow: row wrap;
-} */
-
-/* .image-full-name-summary {
-     display: flex;
-     flex-wrap: wrap; 
- 
-}*/
-
 .image-div {
-     /* display: none; */
      order: 1;
      margin: 5px;
      float: left;
 } 
 
 .image-div img {
-     /* display: none; */
      width: 40vw; 
-     max-width: 200px;
+     max-width: 150px;
      height: auto;
-     float: left;
+     /* float: left; */
      margin: 0px;
 } 
 
-/* .full-name-summary {
-     order: 2;
-     display: flex;
-     flex-direction: column;
-} */
-
-/* .summary-list {
-     order: 3;
-}
-
-.summary-detail {
-     margin-left: 10px;
-     margin-right: 5px;  
-} */
-
 .city-summary {
      margin: 5px;
+}
+
+.full-name {
+     padding: 5px;
+     margin: 10px 0px;
+}
+
+.summary-list {
+     margin: 2px 5px 2px 15px;
 }
 
 
