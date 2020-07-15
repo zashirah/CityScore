@@ -285,7 +285,7 @@ const putDetailsDropdown = (detailData) => {
      const detailsDropdown = document.querySelector('#detail-categories');
 
      const detailOptions = document.querySelectorAll('.detail-option');
-     console.log(detailOptions.length)
+     // console.log(detailOptions.length)
      if (detailOptions.length <= 1) {
 
           detailData.forEach(detail => {
@@ -332,7 +332,7 @@ const putPopulation = (detailData) => {
 
      const newPopulationDensity = document.createElement('li');
      newPopulationDensity.className = 'population-density summary-detail summary-list-item';
-     newPopulationDensity.innerText = `POPULATION DENSITY: ${populationDensity} people / sq.km`;
+     newPopulationDensity.innerText = `POPULATION DENSITY: ${populationDensity} ppl / sq.km`;
 
      summaryList.append(newPopulation);
      summaryList.append(newPopulationDensity);
@@ -342,7 +342,7 @@ const putPopulation = (detailData) => {
 // PARSE urban area details data
 // for details area
 const putCategoryDetails = (detailData, category) => {
-     console.log(detailData);
+     // console.log(detailData);
      const detailsUl = document.querySelector('.details-ul');
      detailData.forEach(detail => {
           if (detail.id === category) {
@@ -350,25 +350,21 @@ const putCategoryDetails = (detailData, category) => {
                     const newStatLi = document.createElement('li')
                     newStatLi.className = 'detail-output';
 
-                    const newStatP = document.createElement('p');
-                    newStatP.className = 'details-output-text';
-
                     if (detailStat.type === 'string') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.string_value}`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.string_value}`
                     } else if (detailStat.type === 'float') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.float_value).toFixed(2)}`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.float_value).toFixed(2)}`
                     } else if (detailStat.type === 'percent') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.percent_value * 100).toFixed(2)}%`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.percent_value * 100).toFixed(2)}%`
                     } else if (detailStat.type === 'currency_dollar') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: $${(detailStat.currency_dollar_value).toFixed(2)}`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: $${(detailStat.currency_dollar_value).toFixed(2)}`
                     } else if (detailStat.type === 'int') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.int_value}`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.int_value}`
                     } else if (detailStat.type === 'url') {
-                         newStatP.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.url_value}`
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.url_value}`
                     }
 
                     detailsUl.append(newStatLi);
-                    newStatLi.append(newStatP);
                });
           }
      });
@@ -419,6 +415,7 @@ const putImages = (imageData) => {
 
      const newMobileImage = document.createElement('img');
      newMobileImage.src = imageData.mobile;
+     newMobileImage.alt = 'city image';
      newMobileImage.className = 'mobile-image summary-detail'
 
      // const newWebImage = document.createElement('img');
