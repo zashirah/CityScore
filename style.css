@@ -8,7 +8,8 @@ body {
 
 .center-text {
      text-align: center;
-     margin: 10px;
+     margin: 5px;
+     padding: 5px;
 }
 
 /* Lists */
@@ -80,16 +81,17 @@ button {
 }
 
 .image-div {
+     /* display: none; */
      order: 1;
      margin: 5px;
-     float: left;
 }
 
 .image-div img {
-     max-width: 40vw; 
+     /* display: none; */
+     width: 40vw; 
+     max-width: 200px;
      height: auto;
      margin: 0px;
-     float: left;
 } 
 
 .full-name-summary {
@@ -101,16 +103,6 @@ button {
 .summary-list {
      order: 3;
 }
-
-/* .full-name {
-     order: 2;
-} */
-
-/* .summary-div {
-     order: 3;
-} */
-
-
 
 .summary-detail {
      margin-left: 10px;
@@ -184,7 +176,8 @@ button {
      display: flex;
      flex-direction: row nowrap;
      justify-content: space-between;
-     border: solid black 1px;
+     /* border: solid black 1px; */
+     align-items: center;
      margin: 1px;
      padding: 3px;
 }

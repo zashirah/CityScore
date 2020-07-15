@@ -126,11 +126,11 @@ Wireframe: https://wireframe.cc/atSHeo
 |  Day | Deliverable | Status
 |---|---| ---|
 |July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
-|July 13| Project Approval | Incomplete
+|July 13| Project Approval | Complete
 |July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Complete
-|July 14| HTML and JavaScript complete | Incomplete
+|July 14| HTML and JavaScript complete | Complete
 |July 15| Complete CSS (styled form, score section)  | Incomplete
-|July 16| MVP - add more filters, game to 10, scorecard, category selector | Incomplete
+|July 16| MVP  | Incomplete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
@@ -150,7 +150,7 @@ Include a full list of features that have been prioritized based on the `Time an
 | JS - Summary/Score Sections | H | 4hrs | 2.5hrs | hrs |
 | JS - Details Section | M | 2hrs| 2hrs | hrs |
 | JS - Form | H | 3hrs| 2hrs | hrs |
-| CSS - Summary/Score Sections | H | 4hrs| 1.5hrs | hrs |
+| CSS - Summary/Score Sections | H | 4hrs| 2hrs | hrs |
 | CSS - Details Section | M | 2hrs| 1hrs | hrs |
 | CSS - Form | H | 3hrs| 1hrs | hrs |
 | Category Selection | L | 4hrs| hrs | hrs |
