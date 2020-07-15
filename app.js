@@ -804,7 +804,7 @@ const putPopulationCompare = (detailData) => {
      const populationDensity = detailData[1].data[2].float_value.toFixed(1);
 
      const newPopulation = document.createElement('li');
-     newPopulation.className = 'population summary-detail summary-list-item';
+     newPopulation.className = 'population-compare summary-detail-compare summary-list-item-compare';
      newPopulation.innerText = `POPULATION: ${population} million`;
 
      const newPopulationDensity = document.createElement('li');
