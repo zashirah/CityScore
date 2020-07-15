@@ -73,15 +73,34 @@ button {
      flex-flow: row wrap;
 }
 
+.image-full-name-summary {
+     display: flex;
+     /* flex-wrap: wrap; */
+
+}
+
 .image-div {
      order: 1;
      margin: 5px;
+     float: left;
 }
 
 .image-div img {
      max-width: 40vw; 
+     height: auto;
      margin: 0px;
+     float: left;
 } 
+
+.full-name-summary {
+     order: 2;
+     display: flex;
+     flex-direction: column;
+}
+
+.summary-list {
+     order: 3;
+}
 
 /* .full-name {
      order: 2;
@@ -91,13 +110,7 @@ button {
      order: 3;
 } */
 
-.full-name-summary {
-     order: 2;
-}
 
-.summary-list {
-     order: 4;
-}
 
 .summary-detail {
      margin-left: 10px;
