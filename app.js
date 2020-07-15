@@ -1,3 +1,22 @@
+// LAUNCH compare view
+const compareButton = document.querySelector('.compare-button');
+compareButton.addEventListener('click', () => {
+     const mainDiv = document.querySelector('.main-div');
+     mainDiv.classList.toggle('side-by-side');
+
+     const selectForm = document.querySelector('.select-form');
+     selectForm.classList.toggle('compare');
+     const summary = document.querySelector('.summary');
+     summary.classList.toggle('compare');
+     const score = document.querySelector('.score');
+     score.classList.toggle('compare');
+     const details = document.querySelector('.details');
+     details.classList.toggle('compare');
+
+     const selectFormCompare = document.querySelector('.select-form-compare');
+     // console.log(selectFormCompare);
+     selectFormCompare.classList.toggle('no-show-compare');
+});
 
 
 

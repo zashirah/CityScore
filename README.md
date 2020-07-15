@@ -155,7 +155,7 @@ Include a full list of features that have been prioritized based on the `Time an
 | CSS - Form | H | 3hrs| 1hrs | hrs |
 | Category Selection | L | 4hrs| hrs | hrs |
 | Add Brewdog | L | 3hrs| hrs | hrs |
-| Add City Comparison | L | 8hrs | 1hrs | hrs |
+| Add City Comparison | L | 8hrs | 2hrs | hrs |
 | Total | n/a | 37hrs| hrs | hrs |
 
 ## Code Snippet

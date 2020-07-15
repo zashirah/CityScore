@@ -5,6 +5,17 @@ body {
      color: rgb(216,214,234); 
 }
 
+header {
+     display: flex;
+     justify-content: space-between;    
+     align-items: center;
+}
+
+.compare-button {
+     display: none;
+     height: 29px;
+}
+
 
 .center-text {
      text-align: center;
@@ -221,7 +232,7 @@ button {
 
 /* MEDIA QUERIES */
 
-@media (min-width: 480px) {
+@media (min-width: 750px) {
      li, 
      .city-summary, 
      .qol-category,
@@ -233,6 +244,13 @@ button {
      .meter { 
           width: 50%;
 	     height: 15px;  /* Can be anything */
+     }
+
+
+     .compare-button {
+          /* display: none; */
+          display: block;
+          height: 29px;
      }
 
      /* turning off for compare */
