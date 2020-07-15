@@ -835,7 +835,7 @@ async function getTotalCityCountCompare(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.count;
-          return putCitiesCount(data);
+          return putCitiesCountCompare(data);
      } catch (error) {
           console.log('Error', error);
      }
