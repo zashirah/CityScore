@@ -84,11 +84,11 @@ submitCityButton.addEventListener('click', (e) => {
      city = city.replace(/ /g, '-');
      city = city.toLowerCase();
 
-     getUrbanAreaBasic(city);
-     getUrbanAreaDetails(city, 'summary');
-     getUrbanAreaScores(city);
-     getTotalCityCount(city);
      getImages(city);
+     getUrbanAreaBasic(city);
+     getUrbanAreaScores(city);
+     getUrbanAreaDetails(city, 'summary');
+     getTotalCityCount(city);
 });
 
 
@@ -181,7 +181,7 @@ async function getUrbanAreaBasic(urbanArea) {
 // PARSE urban area basic data
 // for summary area - Full Name
 const putFullName = (basicData) => {
-     const fullNameSummaryDiv = document.querySelector('.full-name-summary');
+     const fullNameSummaryDiv = document.querySelector('.summary-header-div');
 
      const newFullName = document.createElement('h3');
      newFullName.className = 'full-name summary-detail';
@@ -209,13 +209,6 @@ async function getUrbanAreaScores(urbanArea) {
 // for summary area - QOL Score, Summary
 const putQolScoreAndSummary = (scoreData) => {
 
-     const summaryParentDiv = document.querySelector('.full-name-summary');
-     const summaryList = document.querySelector('.summary-list');
-
-     const newQol = document.createElement('li');
-     newQol.className = 'qol-score summary-detail summary-list-item';
-     newQol.innerText = `Total Quality of Life Score: ${Math.round(scoreData.teleport_city_score)}`;
-
      const summaryDiv = document.querySelector('.summary-div');
      summaryDiv.innerHTML = scoreData.summary;
 
@@ -224,8 +217,15 @@ const putQolScoreAndSummary = (scoreData) => {
           summaryP.className = 'city-summary summary-detail';
      });
 
+     // const summaryParentDiv = document.querySelector('.summary-div');
+     const summaryList = document.querySelector('.summary-list');
+
+     const newQol = document.createElement('li');
+     newQol.className = 'qol-score summary-detail summary-list-item';
+     newQol.innerText = `Total Quality of Life Score: ${Math.round(scoreData.teleport_city_score)}`;
+
+     // summaryParentDiv.append(summaryDiv);
      summaryList.append(newQol);
-     summaryParentDiv.append(summaryDiv);
 }
 
 
@@ -339,6 +339,7 @@ const putPopulation = (detailData) => {
 // PARSE urban area details data
 // for details area
 const putCategoryDetails = (detailData, category) => {
+     console.log(detailData);
      const detailsUl = document.querySelector('.details-ul');
      detailData.forEach(detail => {
           if (detail.id === category) {
@@ -352,11 +353,15 @@ const putCategoryDetails = (detailData, category) => {
                     if (detailStat.type === 'string') {
                          newStatP.innerText = `${detailStat.label}: ${detailStat.string_value}`
                     } else if (detailStat.type === 'float') {
-                         newStatP.innerText = `${detailStat.label}: ${detailStat.float_value}`
+                         newStatP.innerText = `${detailStat.label}: ${(detailStat.float_value).toFixed(2)}`
                     } else if (detailStat.type === 'percent') {
                          newStatP.innerText = `${detailStat.label}: ${(detailStat.percent_value * 100).toFixed(2)}%`
                     } else if (detailStat.type === 'currency_dollar') {
                          newStatP.innerText = `${detailStat.label}: $${(detailStat.currency_dollar_value).toFixed(2)}`
+                    } else if (detailStat.type === 'int') {
+                         newStatP.innerText = `${detailStat.label}: ${detailStat.int_value}`
+                    } else if (detailStat.type === 'url') {
+                         newStatP.innerText = `${detailStat.label}: ${detailStat.url_value}`
                     }
 
                     detailsUl.append(newStatLi);
