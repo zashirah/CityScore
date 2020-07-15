@@ -19,7 +19,9 @@ ul {
      padding: 5px 10px;
 }
 
-li, .city-summary {
+li, 
+.city-summary,
+.city-summary-compare {
      font-size: 12px;
 }
 
@@ -41,7 +43,11 @@ li {
 .summary,
 .score,
 .select-form,
-.details {
+.details,
+.summary-compare,
+.score-compare,
+.select-form-compare,
+.details-compare {
      width: 95vw;
      border-radius: 10px;
      margin: 5px 0px;
@@ -65,35 +71,43 @@ button {
 
 .continent-section, 
 .city-section,
-.detail-section {
+.detail-section,
+.continent-section-compare, 
+.city-section-compare,
+.detail-section-compare {
      display: flex;
      width: 95vw;
 }
 
 /* Summary Section */
-.image-div {
+.image-div,
+.image-div-compare {
      order: 1;
      margin: 5px;
      float: left;
      top: 25px;
 } 
 
-.image-div img {
+.image-div img,
+.image-div-compare img {
      width: 40vw; 
      max-width: 150px;
      height: auto;
      margin: 0px;
 } 
 
-.city-summary {
+.city-summary,
+.city-summary-compare {
      margin: 5px;
 }
 
-.full-name {
+.full-name,
+full-name-compare {
      padding: 5px;
      margin: 0px 0px 10px 0px;
 }
 
+.summary-list,
 .summary-list {
      margin: 2px 5px 2px 15px;
 }
@@ -145,18 +159,21 @@ button {
      background-image: linear-gradient(to bottom, #f0a3a3, #f42323);
 }
 
-.all-progress-bars {
+.all-progress-bars,
+.all-progress-bars-compare {
      display: flex;
      flex-direction: row;
      justify-content: space-around;
 }
 
-.all-progress-bars > div {
+.all-progress-bars > div,
+.all-progress-bars-compare > div {
      margin: 0px 5px;
      width: 45vw;   
 }
 
-.progress-bar {
+.progress-bar,
+.progress-bar-compare {
      display: flex;
      flex-direction: row nowrap;
      justify-content: space-between;
@@ -165,7 +182,8 @@ button {
      padding: 3px;
 }
 
-.qol-category {
+.qol-category,
+.qol-category-compare {
      margin: 0;
      font-size: 12px;
      width: 45%;
@@ -173,7 +191,8 @@ button {
 }
 
 /* Details Seciton */
-.details-output {
+.details-output,
+.details-output-compare {
      margin-left: 0;
 }
 
@@ -185,11 +204,15 @@ button {
      width: 50px;
 } */
 
-/* this is the same as the above when the above is placed correct
+/*this is the same as the above when the above is placed correct*/
 .select-form,
 .summary,
 .score,
-.details {
+.details,
+.select-form-compare,
+.summary-compare,
+.score-compare,
+.details-compare  {
      width: 50vw;
 }
 
@@ -210,7 +233,9 @@ button {
 
      li, 
      .city-summary, 
-     .qol-category{
+     .qol-category,
+     .city-summary-compare, 
+     .qol-category-compare {
           font-size: 16px;
      }
 

@@ -14,6 +14,7 @@
 <body>
      <header>
           <h1>CityScore</h1>
+          <button class='compare-button'>Compare</button>
      </header>
 
 
@@ -32,7 +33,7 @@
                                    <option value="OC">Oceana</option>
                                    <option value="SA">South America</option>
                               </select>
-                              <button id='updateCityList'>Update List</button>
+                              <button id='update-city-list'>Update List</button>
                          </section>
                          <section class='city-section no-show-1 left-form'>
                               <select name="city" id="city" class='no-show-1'>
@@ -86,10 +87,10 @@
                </div>
           </div>
           <div class="right-side">
-               <div class='select-form'>
+               <div class='select-form-compare'>
                     <form action='submit'>
-                         <section class='continent-section left-form'>
-                              <select name="continents" id="continents-right">
+                         <section class='continent-section-compare left-form-compare'>
+                              <select name="continents-compare" id="continents-compare">
                                    <option value="all">All Continents</option>
                                    <option value="AF">Africa</option>
                                    <option value="AS">Asia</option>
@@ -98,55 +99,55 @@
                                    <option value="OC">Oceana</option>
                                    <option value="SA">South America</option>
                               </select>
-                              <button id='updateCityList'>Update List</button>
+                              <button id='update-city-list-compare'>Update List</button>
                          </section>
-                         <section class='city-section no-show-1-compare left-form'>
-                              <select name="city" id="city" class='no-show-1-compare'>
+                         <section class='city-section-compare no-show-1-compare left-form'>
+                              <select name="city-compare" id="city-compare" class='no-show-1-compare'>
                                    <option value="" class='no-show-1-compare'>Select City</option>
                               </select>
-                              <button id='submit-city' class='no-show-1-compare'>Submit</button>
+                              <button id='submit-city-compare' class='no-show-1-compare'>Submit</button>
                          </section>
 
                     </form>
                </div>
 
-               <div class='summary no-show-compare'>
+               <div class='summary-compare no-show-compare'>
                     <!-- <div class='image-full-name-summary'> -->
-                    <div class='full-name-summary'>
-                         <div class='image-div no-show-compare'></div>
-                         <div class='summary-header-div no-show-compare'></div>
-                         <div class='summary-div no-show-compare'></div>
-                         <div class='summary-list-div no-show-compare'>
-                              <ul class='summary-list no-show-compare'></ul>
+                    <div class='full-name-summary-compare'>
+                         <div class='image-div-compare no-show-compare'></div>
+                         <div class='summary-header-div-compare no-show-compare'></div>
+                         <div class='summary-div-compare no-show-compare'></div>
+                         <div class='summary-list-div-compare no-show-compare'>
+                              <ul class='summary-list-compare no-show-compare'></ul>
                          </div>
 
                     </div>
                     <!-- </div> -->
                </div>
-               <div class='score no-show-compare'>
-                    <h3 class='score-header center-text'>QUALITY OF LIFE RESULTS</h3>
+               <div class='score-compare no-show-compare'>
+                    <h3 class='score-header-compare center-text'>QUALITY OF LIFE RESULTS</h3>
                     <!-- Progress Bar Code: https://css-tricks.com/css3-progress-bars/ -->
-                    <div class='all-progress-bars'>
-                         <div class='left-progress-bars'>
+                    <div class='all-progress-bars-compare'>
+                         <div class='left-progress-bars-compare'>
                          </div>
-                         <div class='right-progress-bars'>
+                         <div class='right-progress-bars-compare'>
                          </div>
                     </div>
                </div>
-               <div class='details no-show-compare'>
-                    <div class='detail-form'>
-                         <h3 class='details-header center-text'>MORE DETAILS</h3>
+               <div class='details-compare no-show-compare'>
+                    <div class='detail-form-compare'>
+                         <h3 class='details-header-compare center-text'>MORE DETAILS</h3>
                          <form action="">
-                              <section class='detail-section left-form'>
-                                   <select name="detail-categories" id="detail-categories">
-                                        <option class='detail-option' value=''>Select Category</option>
+                              <section class='detail-section-compare left-form-compare'>
+                                   <select name="detail-categories" id="detail-categories-compare">
+                                        <option class='detail-option-compare' value=''>Select Category</option>
                                    </select>
-                                   <button id='submit-detail'>Submit</button>
+                                   <button id='submit-detail-compare'>Submit</button>
                               </section>
                          </form>
                     </div>
-                    <div class='details-output'>
-                         <ul class='details-ul'>
+                    <div class='details-output-compare'>
+                         <ul class='details-ul-compare'>
                          </ul>
                     </div>
                </div>

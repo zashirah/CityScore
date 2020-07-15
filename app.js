@@ -9,9 +9,8 @@ const toggleOnSection1 = () => {
      }
 }
 
-
 // GET selection from Continent Dropdown on Updated button
-const submitContinentButton = document.querySelector('#updateCityList');
+const submitContinentButton = document.querySelector('#update-city-list');
 submitContinentButton.addEventListener('click', (e) => {
      e.preventDefault();
 
@@ -143,7 +142,7 @@ async function getUrbanAreaList(continent) {
           };
      };
 };
-getUrbanAreaList();
+// getUrbanAreaList();
 
 
 // PUT Urban Area List in the City Dropdown
@@ -427,3 +426,435 @@ const putImages = (imageData) => {
      imgDiv.append(newMobileImage);
      // imgDiv.append(newWebImage);
 }
+
+
+
+
+
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+// ********************************** COMPARE SECTION **********************************
+
+// TOGGLE ON the cities component - COMPARE
+const toggleOnSection1Compare = () => {
+     const noShowers = document.querySelectorAll('.no-show-1-compare')
+
+     if (noShowers) {
+          noShowers.forEach(noShower => {
+               noShower.classList.toggle('no-show-1');
+          });
+     }
+}
+
+// GET selection from Continent Dropdown on Updated button - COMPARE
+const submitContinentButtonCompare = document.querySelector('#update-city-list-compare');
+submitContinentButtonCompare.addEventListener('click', (e) => {
+     // console.log(1)
+     e.preventDefault();
+
+     toggleOnSection1();
+
+     // console.log(2)
+     const options = document.querySelectorAll('#city-compare option');
+     // console.log(options)
+     // console.log(options);
+     options.forEach(option => {
+          // console.log(3)
+          option.remove();
+     });
+
+     // console.log(4)
+     const submittedContinent = document.querySelector('#continents-compare').value
+     // console.log(submittedContinent)
+     getUrbanAreaListCompare(submittedContinent);
+});
+
+
+// REMOVE summary details for each new submit
+const removeSummaryDetailsCompare = () => {
+     const summaryDetails = document.querySelectorAll('.summary-detail-compare');
+     summaryDetails.forEach(summaryDetail => {
+          summaryDetail.remove();
+     });
+};
+
+
+// REMOVE progress bars for each new submit
+const removeProgressBarsCompare = () => {
+     const progressBars = document.querySelectorAll('.progress-bar-compare');
+     progressBars.forEach(progressBar => {
+          progressBar.remove();
+     });
+};
+
+
+// REMOVE details li's from the bottom
+const removeDetailsCompare = () => {
+     const details = document.querySelectorAll('.detail-output-compare');
+     details.forEach(detail => {
+          detail.remove();
+     });
+}
+
+
+// TOGGLE ON the components that aren't showing
+const toggleOnSectionsCompare = () => {
+     const noShowers = document.querySelectorAll('.no-show-compare')
+
+     if (noShowers) {
+          noShowers.forEach(noShower => {
+               noShower.classList.toggle('no-show-compare');
+          });
+     }
+}
+
+
+
+// GET Selected City as input for the Summary section
+const submitCityButtonCompare = document.querySelector('#submit-city-compare');
+submitCityButtonCompare.addEventListener('click', (e) => {
+     e.preventDefault();
+     console.log(1)
+
+
+     toggleOnSectionsCompare();
+     console.log(2)
+
+     removeSummaryDetailsCompare();
+     removeProgressBarsCompare();
+     removeDetailsCompare();
+     console.log(3)
+
+     let city = document.querySelector('#city-compare').value;
+     city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
+     console.log(4)
+     console.log(city)
+
+     getImagesCompare(city);
+     getUrbanAreaBasicCompare(city);
+     getUrbanAreaScoresCompare(city);
+     getUrbanAreaDetailsCompare(city, 'summary');
+     getTotalCityCountCompare(city);
+});
+
+
+// GET details section selection
+const submitDetailButtonCompare = document.querySelector('#submit-detail-compare');
+submitDetailButtonCompare.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     removeDetailsCompare();
+
+     let city = document.querySelector('#city-compare').value;
+     city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
+
+     const category = document.querySelector('#detail-categories-compare').value;
+
+     getUrbanAreaDetailsCompare(city, 'details', category);
+})
+
+
+// GET Urban Areas List based on Continent dropdown - COMPARE
+async function getUrbanAreaListCompare(continent) {
+     if (continent === 'all') {
+          try {
+               const allUrl = 'https://api.teleport.org/api/urban_areas';
+               const response = await axios.get(allUrl);
+               data = response.data._links['ua:item'];
+               return addListToCityDropdownCompare(data)
+          } catch (error) {
+               console.log('Error', error);
+          };
+     } else {
+          try {
+               const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
+               const response = await axios.get(continetUrl);
+               data = response.data._links['ua:items'];
+               return addListToCityDropdownCompare(data)
+          } catch (error) {
+               console.log(error);
+          };
+     };
+};
+// getUrbanAreaList();
+
+
+// PUT Urban Area List in the City Dropdown
+function addListToCityDropdownCompare(list) {
+     const cityDropdown = document.querySelector('#city-compare');
+     const newOptionDefault = document.createElement('option');
+     newOptionDefault.innerText = 'Select City';
+     cityDropdown.append(newOptionDefault);
+
+     list.forEach(listElement => {
+          const cityDropdown = document.querySelector('#city-compare');
+
+          const newOption = document.createElement('option');
+          newOption.value = listElement.name;
+          newOption.innerText = listElement.name;
+
+          cityDropdown.append(newOption);
+     });
+};
+
+
+// GET basic data
+async function getUrbanAreaBasicCompare(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data;
+          return putFullNameCompare(data);
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+// PARSE urban area basic data
+// for summary area - Full Name
+const putFullNameCompare = (basicData) => {
+     const fullNameSummaryDiv = document.querySelector('.summary-header-div-compare');
+
+     const newFullName = document.createElement('h3');
+     newFullName.className = 'full-name-compare summary-detail-compare';
+     newFullName.innerText = basicData.full_name.toUpperCase();
+
+     fullNameSummaryDiv.append(newFullName);
+}
+
+
+// GET scores data
+async function getUrbanAreaScoresCompare(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/scores/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data;
+
+          return putQolScoreAndSummaryCompare(data),
+               putScoresCompare(data);
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+// PARSE urban area scores data
+// for summary area - QOL Score, Summary
+const putQolScoreAndSummaryCompare = (scoreData) => {
+
+     const summaryDiv = document.querySelector('.summary-div-compare');
+     summaryDiv.innerHTML = scoreData.summary;
+
+     const summaryPs = document.querySelectorAll('.summary-div-compare p');
+     summaryPs.forEach(summaryP => {
+          summaryP.className = 'city-summary-compare summary-detail-compare';
+     });
+
+     // const summaryParentDiv = document.querySelector('.summary-div');
+     const summaryList = document.querySelector('.summary-list-compare');
+
+     const newQol = document.createElement('li');
+     newQol.className = 'qol-score-compare summary-detail-compare summary-list-item-compare';
+     newQol.innerText = `TOTAL QUALITY OF LIFE SCORE: ${Math.round(scoreData.teleport_city_score)}`;
+
+     // summaryParentDiv.append(summaryDiv);
+     summaryList.append(newQol);
+}
+
+
+// PARSE urban areas scores data 
+// for scores area
+const putScoresCompare = (scoreData) => {
+     let i = 0;
+     const leftProgressBar = document.querySelector('.left-progress-bars-compare');
+     const rightProgressBar = document.querySelector('.right-progress-bars-compare');
+     scoreData.categories.forEach(score => {
+
+          const newProgressBar = document.createElement('div');
+          newProgressBar.className = 'progress-bar-compare';
+
+          const newCategoryName = document.createElement('p');
+          newCategoryName.className = 'qol-category-compare';
+          if (score.name === 'Environmental Quality') {
+               newCategoryName.innerText = 'Quality of Environment';
+          } else {
+               newCategoryName.innerText = score.name;
+          }
+
+          const newMeter = document.createElement('div');
+          newMeter.classList.toggle('meter');
+
+          const newMeterSpan = document.createElement('span');
+          const scorePct = score.score_out_of_10 * 10;
+          if (scorePct <= 33) {
+               newMeter.classList.toggle('red');
+          } else if (scorePct > 33 && scorePct <= 67) {
+               newMeter.classList.toggle('orange');
+          };
+
+          newMeterSpan.style.width = `${scorePct}%`;
+
+          if (i < 8) {
+               // add to left column
+               leftProgressBar.append(newProgressBar);
+               newProgressBar.append(newCategoryName);
+               newProgressBar.append(newMeter);
+               newMeter.append(newMeterSpan);
+          } else {
+               // add to right column
+               rightProgressBar.append(newProgressBar);
+               newProgressBar.append(newCategoryName);
+               newProgressBar.append(newMeter);
+               newMeter.append(newMeterSpan);
+          }
+
+          i++
+     });
+}
+
+
+// PUT details dropdown from urban areas details
+const putDetailsDropdownCompare = (detailData) => {
+     const detailsDropdown = document.querySelector('#detail-categories-compare');
+
+     const detailOptions = document.querySelectorAll('.detail-option-compare');
+     if (detailOptions.length <= 1) {
+
+          detailData.forEach(detail => {
+               const newOption = document.createElement('option');
+               newOption.value = detail.id;
+               newOption.innerText = detail.label;
+               newOption.className = 'detail-option-compare';
+
+               detailsDropdown.append(newOption);
+          });
+     }
+}
+
+
+// GET details data
+async function getUrbanAreaDetailsCompare(urbanArea, section, category = false) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/details/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.categories;
+          // console.log(data);
+          if (section === 'summary') {
+               return putPopulationCompare(data),
+                    putDetailsDropdownCompare(data);
+          } else {
+               return putCategoryDetailsCompare(data, category);
+          }
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+// PARSE urban area details data
+// for summary area - Population 
+const putPopulationCompare = (detailData) => {
+     const summaryList = document.querySelector('.summary-list-compare');
+
+     const population = detailData[1].data[0].float_value.toFixed(2);
+     const populationDensity = detailData[1].data[2].float_value.toFixed(1);
+
+     const newPopulation = document.createElement('li');
+     newPopulation.className = 'population summary-detail summary-list-item';
+     newPopulation.innerText = `POPULATION: ${population} million`;
+
+     const newPopulationDensity = document.createElement('li');
+     newPopulationDensity.className = 'population-density-compare summary-detail-compare summary-list-item-compare';
+     newPopulationDensity.innerText = `POPULATION DENSITY: ${populationDensity} ppl / sq.km`;
+
+     summaryList.append(newPopulation);
+     summaryList.append(newPopulationDensity);
+}
+
+
+// PARSE urban area details data
+// for details area
+const putCategoryDetailsCompare = (detailData, category) => {
+     const detailsUl = document.querySelector('.details-ul-compare');
+     detailData.forEach(detail => {
+          if (detail.id === category) {
+               detail.data.forEach(detailStat => {
+                    const newStatLi = document.createElement('li')
+                    newStatLi.className = 'detail-output-compare';
+
+                    if (detailStat.type === 'string') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.string_value}`
+                    } else if (detailStat.type === 'float') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.float_value).toFixed(2)}`
+                    } else if (detailStat.type === 'percent') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${(detailStat.percent_value * 100).toFixed(2)}%`
+                    } else if (detailStat.type === 'currency_dollar') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: $${(detailStat.currency_dollar_value).toFixed(2)}`
+                    } else if (detailStat.type === 'int') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.int_value}`
+                    } else if (detailStat.type === 'url') {
+                         newStatLi.innerText = `${detailStat.label.toUpperCase()}: ${detailStat.url_value}`
+                    }
+
+                    detailsUl.append(newStatLi);
+               });
+          }
+     });
+};
+
+// GET total number of cities: 
+async function getTotalCityCountCompare(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/cities/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.count;
+          return putCitiesCount(data);
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+// PARSE urban area cities
+// for summary area - total city count 
+const putCitiesCountCompare = (urbanCitiesData) => {
+     const summaryParentDiv = document.querySelector('.summary-list-compare');
+
+     const cityCount = urbanCitiesData;
+
+     const newCityCount = document.createElement('li');
+     newCityCount.className = 'city-count-compare summary-detail-compare summary-list-item-compare';
+     newCityCount.innerText = `TOTAL CITIES: ${cityCount}`;
+
+     summaryParentDiv.append(newCityCount);
+}
+
+// GET images 
+async function getImagesCompare(urbanArea) {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/images/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.photos[0].image;
+          // console.log(data);
+          return putImagesCompare(data);
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+const putImagesCompare = (imageData) => {
+     const imgDiv = document.querySelector('.image-div-compare');
+
+     console.log(imageData);
+
+     const newMobileImage = document.createElement('img');
+     newMobileImage.src = imageData.mobile;
+     newMobileImage.alt = 'city image';
+     newMobileImage.className = 'mobile-image-compare summary-detail-compare'
+     imgDiv.append(newMobileImage);
+}
+
