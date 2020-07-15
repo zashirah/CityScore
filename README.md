@@ -129,7 +129,7 @@ Wireframe: https://wireframe.cc/atSHeo
 |July 13| Project Approval | Complete
 |July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Complete
 |July 14| HTML and JavaScript complete | Complete
-|July 15| Complete CSS (styled form, score section)  | Incomplete
+|July 15| Complete CSS (styled form, score section)  | Complete
 |July 16| MVP  | Incomplete
 |July 17| Presentations | Incomplete
 
@@ -145,17 +145,17 @@ Include a full list of features that have been prioritized based on the `Time an
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Base HTML | M | 2hrs | 1.5hrs | hrs | 
-| Base CSS | M | 2hrs| 2hrs | hrs |
+| Base CSS | M | 2hrs| 4hrs | hrs |
 | Explore Data | M | 2hrs| 1.5hrs | hrs |
 | JS - Summary/Score Sections | H | 4hrs | 2.5hrs | hrs |
 | JS - Details Section | M | 2hrs| 2hrs | hrs |
 | JS - Form | H | 3hrs| 2hrs | hrs |
-| CSS - Summary/Score Sections | H | 4hrs| 2hrs | hrs |
+| CSS - Summary/Score Sections | H | 4hrs| 3hrs | hrs |
 | CSS - Details Section | M | 2hrs| 1hrs | hrs |
 | CSS - Form | H | 3hrs| 1hrs | hrs |
 | Category Selection | L | 4hrs| hrs | hrs |
 | Add Brewdog | L | 3hrs| hrs | hrs |
-| Add City Comparison | L | 8hrs | hrs | hrs |
+| Add City Comparison | L | 8hrs | 1hrs | hrs |
 | Total | n/a | 37hrs| hrs | hrs |
 
 ## Code Snippet
