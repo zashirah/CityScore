@@ -129,8 +129,8 @@ Wireframe: https://wireframe.cc/atSHeo
 |July 13| Project Approval | Complete
 |July 13| Basic HTML (buid wireframe), CSS (base styling), JavaScript (import and play with data)  | Complete
 |July 14| HTML and JavaScript complete | Complete
-|July 15| Complete CSS (styled form, score section)  | Complete
-|July 16| MVP  | Incomplete
+|July 15| MVP - Complete CSS (styled form, score section)  | Complete
+|July 16| Post - MVP  | Incomplete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
