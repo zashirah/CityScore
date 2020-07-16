@@ -1,7 +1,21 @@
 // LAUNCH compare view
 const toggleClassList = (identifyingClass, toggleClass) => {
-     const element = document.querySelector(identifyingClass);
-     element.classList.toggle(toggleClass)
+     const elements = document.querySelectorAll(identifyingClass);
+
+     console.log(elements.length);
+     console.log(elements);
+     if (elements.length >= 1) {
+          console.log(2)
+          elements.forEach(element => {
+               console.log(3)
+               console.log(element)
+               element.classList.toggle(toggleClass);
+          });
+     } else if (elements.length === 1) {
+          console.log(1)
+          const element = document.querySelector(identifyingClass);
+          element.classList.toggle(toggleClass)
+     }
 }
 
 
@@ -29,22 +43,9 @@ compareButton.addEventListener('click', (e) => {
 });
 
 
-// TOGGLE ON the cities component
-const toggleOnSection1 = (compare = '') => {
-
-     const noShowers = document.querySelectorAll(`.no-show-1${compare}`)
-
-     if (noShowers) {
-          noShowers.forEach(noShower => {
-               noShower.classList.toggle(`no-show-1${compare}`);
-          });
-     }
-}
-
-
 // function for the continent submission button
 function getContinentValueForCityList(compare = '') {
-     toggleOnSection1(compare);
+     toggleClassList(`.no-show-1${compare}`, `no-show-1${compare}`);
 
      const options = document.querySelectorAll(`#city${compare} option`);
      options.forEach(option => {
@@ -81,21 +82,9 @@ function removeElements(identifyingClass) {
 };
 
 
-// TOGGLE ON the components that aren't showing
-const toggleOnSections = (compare = '') => {
-     const noShowers = document.querySelectorAll(`.no-show${compare}`);
-
-     if (noShowers) {
-          noShowers.forEach(noShower => {
-               noShower.classList.toggle(`no-show${compare}`);
-          });
-     }
-}
-
-
 // Function for the city button submission
 function getCityValueAndBuildPage(compare = '') {
-     toggleOnSections(compare);
+     toggleClassList(`.no-show${compare}`, `no-show${compare}`);
 
      removeElements(`.summary-detail${compare}`);
      removeElements(`.progress-bar${compare}`);
@@ -150,7 +139,7 @@ submitDetailButton.addEventListener('click', (e) => {
 });
 
 
-// GET details section selection
+// GET details section selection - COMPARE
 const submitDetailButtonCompare = document.querySelector('#submit-detail-compare');
 submitDetailButtonCompare.addEventListener('click', (e) => {
      e.preventDefault();
@@ -160,7 +149,7 @@ submitDetailButtonCompare.addEventListener('click', (e) => {
 
 // GET Urban Areas List based on Continent dropdown
 async function getUrbanAreaList(continent, compare = '') {
-     console.log(continent)
+     // console.log(continent)
      if (continent === 'all') {
           try {
                const allUrl = 'https://api.teleport.org/api/urban_areas';
@@ -186,7 +175,6 @@ async function getUrbanAreaList(continent, compare = '') {
 // PUT Urban Area List in the City Dropdown
 function addListToCityDropdown(list, compare = '') {
      const cityDropdown = document.querySelector(`#city${compare}`);
-     console.log(cityDropdown);
      const newOptionDefault = document.createElement('option');
      newOptionDefault.innerText = 'Select City';
      cityDropdown.append(newOptionDefault);
