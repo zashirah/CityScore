@@ -18,29 +18,36 @@ compareButton.addEventListener('click', (e) => {
      toggleClassList('.score-compare', 'no-show-compare-button');
      toggleClassList('.details-compare', 'no-show-compare-button');
      toggleClassList('.select-form-compare', 'no-show-compare-button');
-     toggleClassList('.single-button', 'no-show-compare-button');
-     toggleClassList('.compare-button', 'no-show-compare-button');
 
+     const buttonText = document.querySelector('.compare-button').innerText;
+     if (buttonText === 'Compare') {
+          document.querySelector('.compare-button').innerText = 'Single'
+     } else {
+          document.querySelector('.compare-button').innerText = 'Compare'
+     }
+
+
+     // toggleClassList('.single-button', 'no-show-compare-button');
+     // toggleClassList('.compare-button', 'no-show-compare-button');
 });
 
-const singleButton = document.querySelector('.single-button');
-singleButton.addEventListener('click', (e) => {
-     e.preventDefault();
+// const singleButton = document.querySelector('.single-button');
+// singleButton.addEventListener('click', (e) => {
+//      e.preventDefault();
 
-     toggleClassList('.main-div', 'side-by-side');
-     toggleClassList('.select-form', 'compare');
-     toggleClassList('.summary', 'compare');
-     toggleClassList('.score', 'compare');
-     toggleClassList('.details', 'compare');
-     toggleClassList('.city-section-compare', 'no-show-compare-button');
-     toggleClassList('.summary-compare', 'no-show-compare-button');
-     toggleClassList('.score-compare', 'no-show-compare-button');
-     toggleClassList('.details-compare', 'no-show-compare-button');
-     toggleClassList('.select-form-compare', 'no-show-compare-button');
-     toggleClassList('.single-button', 'no-show-compare-button');
-     toggleClassList('.compare-button', 'no-show-compare-button');
-});
-
+//      toggleClassList('.main-div', 'side-by-side');
+//      toggleClassList('.select-form', 'compare');
+//      toggleClassList('.summary', 'compare');
+//      toggleClassList('.score', 'compare');
+//      toggleClassList('.details', 'compare');
+//      toggleClassList('.city-section-compare', 'no-show-compare-button');
+//      toggleClassList('.summary-compare', 'no-show-compare-button');
+//      toggleClassList('.score-compare', 'no-show-compare-button');
+//      toggleClassList('.details-compare', 'no-show-compare-button');
+//      toggleClassList('.select-form-compare', 'no-show-compare-button');
+//      toggleClassList('.single-button', 'no-show-compare-button');
+//      toggleClassList('.compare-button', 'no-show-compare-button');
+// });
 
 
 // TOGGLE ON the cities component
@@ -53,6 +60,7 @@ const toggleOnSection1 = () => {
           });
      }
 }
+
 
 // GET selection from Continent Dropdown on Updated button
 const submitContinentButton = document.querySelector('#update-city-list');
