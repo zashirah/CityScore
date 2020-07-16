@@ -14,9 +14,9 @@ compareButton.addEventListener('click', (e) => {
      toggleClassList('.score', 'compare');
      toggleClassList('.details', 'compare');
      toggleClassList('.city-section-compare', 'no-show-compare-button');
-     // toggleClassList('.summary-compare', 'no-show-compare-button');
-     // toggleClassList('.score-compare', 'no-show-compare-button');
-     // toggleClassList('.details-compare', 'no-show-compare-button');
+     toggleClassList('.summary-compare', 'no-show-compare-button');
+     toggleClassList('.score-compare', 'no-show-compare-button');
+     toggleClassList('.details-compare', 'no-show-compare-button');
      toggleClassList('.select-form-compare', 'no-show-compare-button');
      toggleClassList('.single-button', 'no-show-compare-button');
      toggleClassList('.compare-button', 'no-show-compare-button');
@@ -33,9 +33,9 @@ singleButton.addEventListener('click', (e) => {
      toggleClassList('.score', 'compare');
      toggleClassList('.details', 'compare');
      toggleClassList('.city-section-compare', 'no-show-compare-button');
-     toggleClassList('.summary-compare', 'no-show-compare');
-     toggleClassList('.score-compare', 'no-show-compare');
-     toggleClassList('.details-compare', 'no-show-compare');
+     toggleClassList('.summary-compare', 'no-show-compare-button');
+     toggleClassList('.score-compare', 'no-show-compare-button');
+     toggleClassList('.details-compare', 'no-show-compare-button');
      toggleClassList('.select-form-compare', 'no-show-compare-button');
      toggleClassList('.single-button', 'no-show-compare-button');
      toggleClassList('.compare-button', 'no-show-compare-button');
