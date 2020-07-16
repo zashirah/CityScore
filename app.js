@@ -108,6 +108,7 @@ submitCityButton.addEventListener('click', (e) => {
 
      let city = document.querySelector('#city').value;
      city = city.replace(/ /g, '-');
+     city = city.replace(/[,.]/g, '');
      city = city.toLowerCase();
 
      getImages(city);
@@ -534,8 +535,11 @@ submitCityButtonCompare.addEventListener('click', (e) => {
      removeDetailsCompare();
 
      let city = document.querySelector('#city-compare').value;
+     console.log('1', city)
      city = city.replace(/ /g, '-');
+     console.log('2', city)
      city = city.toLowerCase();
+     console.log('3', city)
 
      getImagesCompare(city);
      getUrbanAreaBasicCompare(city);
