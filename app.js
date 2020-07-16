@@ -132,7 +132,7 @@ submitCityButtonCompare.addEventListener('click', (e) => {
 
 // function for the details section submission
 function getCategoryAndCreateList(compare = '') {
-     removeElements(`.detail-category-${compare}`);
+     removeElements(`.detail-output${compare}`);
 
      let city = document.querySelector(`#city${compare}`).value;
      city = city.replace(/ /g, '-');
