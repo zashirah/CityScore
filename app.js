@@ -521,6 +521,12 @@ const toggleOnSectionsCompare = () => {
 }
 
 
+// FUNCTION - compare div heights and make even to max
+// const setSummaryDivHeight = () => {
+//      const summaryDiv
+// }
+
+
 // GET Selected City as input for the Summary section
 const submitCityButtonCompare = document.querySelector('#submit-city-compare');
 submitCityButtonCompare.addEventListener('click', (e) => {
@@ -534,6 +540,7 @@ submitCityButtonCompare.addEventListener('click', (e) => {
 
      let city = document.querySelector('#city-compare').value;
      city = city.replace(/ /g, '-');
+     city = city.replace(/[,.]/g, '');
      city = city.toLowerCase();
 
      getImagesCompare(city);
@@ -541,6 +548,9 @@ submitCityButtonCompare.addEventListener('click', (e) => {
      getUrbanAreaScoresCompare(city);
      getUrbanAreaDetailsCompare(city, 'summary');
      getTotalCityCountCompare(city);
+
+     // function to resize all of the divs
+
 });
 
 
