@@ -31,10 +31,11 @@ compareButton.addEventListener('click', (e) => {
 const toggleOnSection1 = (compare = '') => {
 
      const noShowers = document.querySelectorAll(`.no-show-1${compare}`)
+     // console.log(noShowers);
 
      if (noShowers) {
           noShowers.forEach(noShower => {
-               noShower.classList.toggle('no-show-1');
+               noShower.classList.toggle(`no-show-1${compare}`);
           });
      }
 }
@@ -69,6 +70,7 @@ submitContinentButtonCompare.addEventListener('click', (e) => {
      });
 
      const submittedContinent = document.querySelector('#continents-compare').value
+     console.log(submittedContinent);
      getUrbanAreaList(submittedContinent, compare = '-compare');
 });
 
@@ -155,7 +157,7 @@ submitCityButtonCompare.addEventListener('click', (e) => {
      getImages(city, compare = '-compare');
      getUrbanAreaBasic(city, compare = '-compare');
      getUrbanAreaScores(city, compare = '-compare');
-     getUrbanAreaDetails(city, 'summary', compare = '-compare');
+     getUrbanAreaDetails(city, 'summary', category = false, compare = '-compare');
      getTotalCityCount(city, compare = '-compare');
 
      // function to resize all of the divs
@@ -232,28 +234,6 @@ async function getUrbanAreaList(continent, compare = '') {
      };
 };
 
-// GET Urban Areas List based on Continent dropdown - COMPARE
-// async function getUrbanAreaListCompare(continent) {
-//      if (continent === 'all') {
-//           try {
-//                const allUrl = 'https://api.teleport.org/api/urban_areas';
-//                const response = await axios.get(allUrl);
-//                data = response.data._links['ua:item'];
-//                return addListToCityDropdown(data, compare='-compare')
-//           } catch (error) {
-//                console.log('Error', error);
-//           };
-//      } else {
-//           try {
-//                const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
-//                const response = await axios.get(continetUrl);
-//                data = response.data._links['ua:items'];
-//                return addListToCityDropdown(data, compare='-compare')
-//           } catch (error) {
-//                console.log(error);
-//           };
-//      };
-// };
 
 // PUT Urban Area List in the City Dropdown
 function addListToCityDropdown(list, compare = '') {
@@ -287,18 +267,6 @@ async function getUrbanAreaBasic(urbanArea, compare = '') {
      }
 };
 
-// GET basic data - COMPARE
-// async function getUrbanAreaBasicCompare(urbanArea) {
-//      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/`;
-//      try {
-//           const response = await axios.get(url);
-//           data = response.data;
-//           return putFullName(data, compare='-compare');
-//      } catch (error) {
-//           console.log('Error', error);
-//      }
-// };
-
 
 // PARSE urban area basic data
 // for summary area - Full Name
@@ -326,21 +294,6 @@ async function getUrbanAreaScores(urbanArea, compare = '') {
           console.log('Error', error);
      }
 };
-
-
-// GET scores data - COMPARE
-// async function getUrbanAreaScoresCompare(urbanArea) {
-//      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/scores/`;
-//      try {
-//           const response = await axios.get(url);
-//           data = response.data;
-
-//           return putQolScoreAndSummary(data, '-compare'),
-//                putScores(data, '-compare');
-//      } catch (error) {
-//           console.log('Error', error);
-//      }
-// };
 
 
 // PARSE urban area scores data
@@ -418,9 +371,14 @@ const putScores = (scoreData, compare = '') => {
 
 // PUT details dropdown from urban areas details
 const putDetailsDropdown = (detailData, compare = '') => {
+     console.log(1)
+     console.log(detailData)
+     console.log(compare)
      const detailsDropdown = document.querySelector(`#detail-categories${compare}`);
+     console.log(detailsDropdown)
 
      const detailOptions = document.querySelectorAll(`.detail-option${compare}`);
+     console.log(detailOptions)
 
      detailOptions.forEach(detailOption => {
           detailOption.remove()
