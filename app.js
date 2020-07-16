@@ -854,3 +854,9 @@ const putImagesCompare = (imageData) => {
      imgDiv.append(newMobileImage);
 }
 
+
+// GET HEIGHT OF A SECTION ?????
+
+const summary = document.querySelector('.summary');
+console.log(1)
+console.log(summary.clientHeight);
