@@ -29,8 +29,6 @@ compareButton.addEventListener('click', (e) => {
 });
 
 
-
-
 // TOGGLE ON the cities component
 const toggleOnSection1 = (compare = '') => {
 

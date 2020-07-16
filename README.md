@@ -156,9 +156,9 @@ Include a full list of features that have been prioritized based on the `Time an
 | Category Selection | L | 4hrs| hrs | hrs |
 | Add Brewdog | L | 3hrs| hrs | hrs |
 | Add City Comparison | L | 8hrs | 4hrs | hrs |
-| Debugging | n/a | n/a | 3hrs | hrs |
+| Debugging | n/a | n/a | 4hrs | hrs |
 | Refactoring | n/a | n/a | 3hrs | hrs |
-| Total | n/a | 37hrs| 28.5hrs | hrs |
+| Total | n/a | 37hrs| 29.5hrs | hrs |
 
 ## Code Snippet
 
