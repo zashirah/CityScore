@@ -447,6 +447,19 @@ const putImages = (imageData, compare = '') => {
 }
 
 
+// addCommas function from - https://www.hashbangcode.com/article/format-numbers-commas-javascript
+function addCommas(nStr) {
+     nStr += '';
+     var x = nStr.split('.');
+     var x1 = x[0];
+     var x2 = x.length > 1 ? '.' + x[1] : '';
+     var rgx = /(\d+)(\d{3})/;
+     while (rgx.test(x1)) {
+          x1 = x1.replace(rgx, '$1' + ',' + '$2');
+     }
+     return x1 + x2;
+}
+
 const putSalaryDetails = (salaryData, title, compare = '') => {
      const salariesUl = document.querySelector(`.salaries-ul${compare}`);
 
@@ -454,15 +467,15 @@ const putSalaryDetails = (salaryData, title, compare = '') => {
           if (salary.job.id === title) {
                const new25Li = document.createElement('li');
                new25Li.className = `salary-output${compare}`;
-               new25Li.innerText = `25th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_25)}`;
+               new25Li.innerText = `25th Percentile Salary: $${addCommas(Math.round(salary.salary_percentiles.percentile_25))}`;
 
                const new50Li = document.createElement('li');
                new50Li.className = `salary-output${compare}`;
-               new50Li.innerText = `50th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_50)}`;
+               new50Li.innerText = `50th Percentile Salary: $${addCommas(Math.round(salary.salary_percentiles.percentile_50))}`;
 
                const new75Li = document.createElement('li');
                new75Li.className = `salary-output${compare}`;
-               new75Li.innerText = `75th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_75)}`;
+               new75Li.innerText = `75th Percentile Salary: $${addCommas(Math.round(salary.salary_percentiles.percentile_75))}`;
 
                salariesUl.append(new25Li);
                salariesUl.append(new50Li);
