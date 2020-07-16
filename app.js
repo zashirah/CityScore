@@ -4,6 +4,7 @@ const toggleClassList = (identifyingClass, toggleClass) => {
      element.classList.toggle(toggleClass)
 }
 
+
 const compareButton = document.querySelector('.compare-button');
 compareButton.addEventListener('click', (e) => {
      e.preventDefault();
@@ -26,6 +27,8 @@ compareButton.addEventListener('click', (e) => {
           document.querySelector('.compare-button').innerText = 'Compare'
      }
 });
+
+
 
 
 // TOGGLE ON the cities component
@@ -63,7 +66,7 @@ submitContinentButton.addEventListener('click', (e) => {
 });
 
 
-// get continent value when continent button is submitted - COMARE
+// get continent value when continent button is submitted - COMPARE
 const submitContinentButtonCompare = document.querySelector('#update-city-list-compare');
 submitContinentButtonCompare.addEventListener('click', (e) => {
      e.preventDefault()
@@ -71,31 +74,13 @@ submitContinentButtonCompare.addEventListener('click', (e) => {
 });
 
 
-// REMOVE summary details for each new submit
-const removeSummaryDetails = (compare = '') => {
-     const summaryDetails = document.querySelectorAll(`.summary-detail${compare}`);
-     summaryDetails.forEach(summaryDetail => {
-          summaryDetail.remove();
+// function to remove a array of elements
+function removeElements(identifyingClass) {
+     const elementDetails = document.querySelectorAll(identifyingClass);
+     elementDetails.forEach(elementDetail => {
+          elementDetail.remove();
      });
 };
-
-
-// REMOVE progress bars for each new submit
-const removeProgressBars = (compare = '') => {
-     const progressBars = document.querySelectorAll(`.progress-bar${compare}`);
-     progressBars.forEach(progressBar => {
-          progressBar.remove();
-     });
-};
-
-
-// REMOVE details li's from the bottom
-const removeDetails = (compare = '') => {
-     const details = document.querySelectorAll(`.detail-output${compare}`);
-     details.forEach(detail => {
-          detail.remove();
-     });
-}
 
 
 // TOGGLE ON the components that aren't showing
@@ -114,9 +99,9 @@ const toggleOnSections = (compare = '') => {
 function getCityValueAndBuildPage(compare = '') {
      toggleOnSections(compare);
 
-     removeSummaryDetails(compare);
-     removeProgressBars(compare);
-     removeDetails(compare);
+     removeElements(`.summary-detail${compare}`);
+     removeElements(`.progress-bar${compare}`);
+     removeElements(`.detail-output${compare}`);
 
      let city = document.querySelector(`#city${compare}`).value;
      city = city.replace(/ /g, '-');
@@ -126,7 +111,7 @@ function getCityValueAndBuildPage(compare = '') {
      getImages(city, compare);
      getUrbanAreaBasic(city, compare);
      getUrbanAreaScores(city, compare);
-     getUrbanAreaDetails(city, 'summary', category = false, compare = compare);
+     getUrbanAreaDetails(city, 'summary', false, compare);
      getTotalCityCount(city, compare);
 }
 
@@ -147,7 +132,7 @@ submitCityButtonCompare.addEventListener('click', (e) => {
 
 // function for the details section submission
 function getCategoryAndCreateList(compare = '') {
-     removeDetails(compare);
+     removeElements(`.detail-category-${compare}`);
 
      let city = document.querySelector(`#city${compare}`).value;
      city = city.replace(/ /g, '-');
@@ -183,8 +168,7 @@ async function getUrbanAreaList(continent, compare = '') {
                const allUrl = 'https://api.teleport.org/api/urban_areas';
                const response = await axios.get(allUrl);
                data = response.data._links['ua:item'];
-               // console.log(data);
-               return addListToCityDropdown(data, compare = compare)
+               return addListToCityDropdown(data, compare)
           } catch (error) {
                console.log('Error', error);
           };
@@ -193,7 +177,7 @@ async function getUrbanAreaList(continent, compare = '') {
                const continetUrl = `https://api.teleport.org/api/continents/geonames%3A${continent}/urban_areas`;
                const response = await axios.get(continetUrl);
                data = response.data._links['ua:items'];
-               return addListToCityDropdown(data, compare = compare)
+               return addListToCityDropdown(data, compare)
           } catch (error) {
                console.log(error);
           };
@@ -227,7 +211,7 @@ async function getUrbanAreaBasic(urbanArea, compare = '') {
      try {
           const response = await axios.get(url);
           data = response.data;
-          return putFullName(data, compare = compare);
+          return putFullName(data, compare);
      } catch (error) {
           console.log('Error', error);
      }
@@ -254,8 +238,8 @@ async function getUrbanAreaScores(urbanArea, compare = '') {
           const response = await axios.get(url);
           data = response.data;
 
-          return putQolScoreAndSummary(data, compare = compare),
-               putScores(data, compare = compare);
+          return putQolScoreAndSummary(data, compare),
+               putScores(data, compare);
      } catch (error) {
           console.log('Error', error);
      }
@@ -337,14 +321,9 @@ const putScores = (scoreData, compare = '') => {
 
 // PUT details dropdown from urban areas details
 const putDetailsDropdown = (detailData, compare = '') => {
-     console.log(1)
-     console.log(detailData)
-     console.log(compare)
      const detailsDropdown = document.querySelector(`#detail-categories${compare}`);
-     console.log(detailsDropdown)
 
      const detailOptions = document.querySelectorAll(`.detail-option${compare}`);
-     console.log(detailOptions)
 
      detailOptions.forEach(detailOption => {
           detailOption.remove()
@@ -368,10 +347,10 @@ async function getUrbanAreaDetails(urbanArea, section, category = false, compare
           const response = await axios.get(url);
           data = response.data.categories;
           if (section === 'summary') {
-               return putPopulation(data, compare = compare),
-                    putDetailsDropdown(data, compare = compare);
+               return putPopulation(data, compare),
+                    putDetailsDropdown(data, compare);
           } else {
-               return putCategoryDetails(data, category, compare = compare);
+               return putCategoryDetails(data, category, compare);
           }
      } catch (error) {
           console.log('Error', error);
@@ -437,7 +416,7 @@ async function getTotalCityCount(urbanArea, compare = '') {
      try {
           const response = await axios.get(url);
           data = response.data.count;
-          return putCitiesCount(data, compare = compare);
+          return putCitiesCount(data, compare);
      } catch (error) {
           console.log('Error', error);
      }
@@ -465,7 +444,7 @@ async function getImages(urbanArea, compare = '') {
      try {
           const response = await axios.get(url);
           data = response.data.photos[0].image;
-          return putImages(data, compare = compare);
+          return putImages(data, compare);
      } catch (error) {
           console.log('Error', error);
      }
