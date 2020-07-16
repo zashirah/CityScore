@@ -340,6 +340,7 @@ async function getUrbanAreaDetails(urbanArea, section, category = false) {
      }
 };
 
+
 // PARSE urban area details data
 // for summary area - Population 
 const putPopulation = (detailData) => {
@@ -391,6 +392,7 @@ const putCategoryDetails = (detailData, category) => {
      });
 };
 
+
 // GET total number of cities: 
 async function getTotalCityCount(urbanArea) {
      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/cities/`;
@@ -402,6 +404,7 @@ async function getTotalCityCount(urbanArea) {
           console.log('Error', error);
      }
 };
+
 
 // PARSE urban area cities
 // for summary area - total city count 
@@ -416,6 +419,7 @@ const putCitiesCount = (urbanCitiesData) => {
 
      summaryParentDiv.append(newCityCount);
 }
+
 
 // GET images 
 async function getImages(urbanArea) {
@@ -432,8 +436,6 @@ async function getImages(urbanArea) {
 const putImages = (imageData) => {
      const imgDiv = document.querySelector('.image-div');
 
-     console.log(imageData);
-
      const newMobileImage = document.createElement('img');
      newMobileImage.src = imageData.mobile;
      newMobileImage.alt = 'city image';
@@ -441,9 +443,6 @@ const putImages = (imageData) => {
 
      imgDiv.append(newMobileImage);
 }
-
-
-
 
 
 // ********************************** COMPARE SECTION **********************************
@@ -522,7 +521,6 @@ const toggleOnSectionsCompare = () => {
 }
 
 
-
 // GET Selected City as input for the Summary section
 const submitCityButtonCompare = document.querySelector('#submit-city-compare');
 submitCityButtonCompare.addEventListener('click', (e) => {
@@ -535,11 +533,8 @@ submitCityButtonCompare.addEventListener('click', (e) => {
      removeDetailsCompare();
 
      let city = document.querySelector('#city-compare').value;
-     console.log('1', city)
      city = city.replace(/ /g, '-');
-     console.log('2', city)
      city = city.toLowerCase();
-     console.log('3', city)
 
      getImagesCompare(city);
      getUrbanAreaBasicCompare(city);
@@ -851,8 +846,6 @@ async function getImagesCompare(urbanArea) {
 
 const putImagesCompare = (imageData) => {
      const imgDiv = document.querySelector('.image-div-compare');
-
-     console.log(imageData);
 
      const newMobileImage = document.createElement('img');
      newMobileImage.src = imageData.mobile;
