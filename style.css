@@ -56,10 +56,12 @@ li {
 .score,
 .select-form,
 .details,
+.salaries,
 .summary-compare,
 .score-compare,
 .select-form-compare,
-.details-compare {
+.details-compare,
+.salaries-compare {
      width: 95vw;
      border-radius: 10px;
      margin: 5px 0px;
@@ -84,9 +86,11 @@ button {
 .continent-section, 
 .city-section,
 .detail-section,
+.salary-section,
 .continent-section-compare, 
 .city-section-compare,
-.detail-section-compare {
+.detail-section-compare,
+.salary-section-compare {
      display: flex;
      width: 95vw;
 }

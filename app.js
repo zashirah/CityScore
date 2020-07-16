@@ -22,11 +22,13 @@ compareButton.addEventListener('click', (e) => {
      toggleClassList('.summary', 'compare');
      toggleClassList('.score', 'compare');
      toggleClassList('.details', 'compare');
+     toggleClassList('.salaries', 'compare');
      toggleClassList('.city-section-compare', 'no-show-compare-button');
      toggleClassList('.summary-compare', 'no-show-compare-button');
      toggleClassList('.score-compare', 'no-show-compare-button');
      toggleClassList('.details-compare', 'no-show-compare-button');
      toggleClassList('.select-form-compare', 'no-show-compare-button');
+     toggleClassList('.salaries-compare', 'no-show-compare-button');
 
      const buttonText = document.querySelector('.compare-button').innerText;
      if (buttonText === 'Compare') {
@@ -94,7 +96,7 @@ function getCityValueAndBuildPage(compare = '') {
      getUrbanAreaScores(city, compare);
      getUrbanAreaDetails(city, 'summary', false, compare);
      getTotalCityCount(city, compare);
-     getSalaries(city, compare);
+     getSalaries(city, 'summary', false, compare);
 }
 
 // update all the city info when the sity button is clicked
@@ -445,38 +447,95 @@ const putImages = (imageData, compare = '') => {
 }
 
 
+const putSalaryDetails = (salaryData, title, compare = '') => {
+     const salariesUl = document.querySelector(`.salaries-ul${compare}`);
+
+     salaryData.forEach(salary => {
+          if (salary.job.id === title) {
+               const new25Li = document.createElement('li');
+               new25Li.className = `salary-output${compare}`;
+               new25Li.innerText = `25th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_25)}`;
+
+               const new50Li = document.createElement('li');
+               new50Li.className = `salary-output${compare}`;
+               new50Li.innerText = `50th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_50)}`;
+
+               const new75Li = document.createElement('li');
+               new75Li.className = `salary-output${compare}`;
+               new75Li.innerText = `75th Percentile Salary: $${Math.round(salary.salary_percentiles.percentile_75)}`;
+
+               salariesUl.append(new25Li);
+               salariesUl.append(new50Li);
+               salariesUl.append(new75Li);
+          }
+     })
+}
+
+
 // GET salaries
-// async function getSalaries(urbanArea, compare = '') {
-//      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/salaries/`;
-//      try {
-//           const response = await axios.get(url);
-//           data = response.data.salaries;
-//           console.log(data)
-//           return putSalaries(data, compare);
-//      } catch (error) {
-//           console.log('Error', error);
-//      }
-// };
+async function getSalaries(urbanArea, section, title = false, compare = '') {
+     const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/salaries/`;
+     try {
+          const response = await axios.get(url);
+          data = response.data.salaries;
+          if (section === 'summary') {
+               return putSalariesDropdown(data, compare)
+          } else {
+               return putSalaryDetails(data, title, compare);
+          }
+          // console.log(data)
+     } catch (error) {
+          console.log('Error', error);
+     }
+};
+
+const putSalariesDropdown = (salaryData, compare = '') => {
+     const salaryDropdown = document.querySelector(`#salary-categories${compare}`);
+
+     const salaryOptions = document.querySelectorAll(`.salary-option${compare}`);
+
+     salaryOptions.forEach(salaryOption => {
+          salaryOption.remove()
+     });
+
+     salaryData.forEach(detail => {
+          const newOption = document.createElement('option');
+          newOption.value = detail.job.id;
+          newOption.innerText = detail.job.title;
+          newOption.className = `salary-option${compare}`;
+
+          salaryDropdown.append(newOption);
+     });
+
+}
 
 
-// put image in summary area
-// const putSalaries = (salaryData, compare = '') => {
-//      const summaryParentDiv = document.querySelector(`.summary-salary-list${compare}`);
+// function for the details section submission
+function getTitleAndCreateList(compare = '') {
+     removeElements(`.salary-output${compare}`);
 
-     
+     let city = document.querySelector(`#city${compare}`).value;
+     city = city.replace(/ /g, '-');
+     city = city.toLowerCase();
+
+     const title = document.querySelector(`#salary-categories${compare}`).value;
+
+     getSalaries(city, 'details', title, compare);
+}
 
 
+// GET details section selection
+const submitSalaryButton = document.querySelector('#submit-salary');
+submitSalaryButton.addEventListener('click', (e) => {
+     e.preventDefault();
+     getTitleAndCreateList();
+});
 
-// }
 
-// const putCitiesCount = (urbanCitiesData, compare = '') => {
-//      const summaryParentDiv = document.querySelector(`.summary-list${compare}`);
+// GET details section selection - COMPARE
+const submitSalaryButtonCompare = document.querySelector('#submit-salary-compare');
+submitSalaryButtonCompare.addEventListener('click', (e) => {
+     e.preventDefault();
+     getTitleAndCreateList('-compare');
+})
 
-//      const cityCount = urbanCitiesData;
-
-//      const newCityCount = document.createElement('li');
-//      newCityCount.className = `city-count${compare} summary-detail${compare} summary-list-item${compare}`;
-//      newCityCount.innerText = `TOTAL CITIES: ${cityCount}`;
-
-//      summaryParentDiv.append(newCityCount);
-// }
