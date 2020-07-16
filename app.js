@@ -25,30 +25,7 @@ compareButton.addEventListener('click', (e) => {
      } else {
           document.querySelector('.compare-button').innerText = 'Compare'
      }
-
-
-     // toggleClassList('.single-button', 'no-show-compare-button');
-     // toggleClassList('.compare-button', 'no-show-compare-button');
 });
-
-// const singleButton = document.querySelector('.single-button');
-// singleButton.addEventListener('click', (e) => {
-//      e.preventDefault();
-
-//      toggleClassList('.main-div', 'side-by-side');
-//      toggleClassList('.select-form', 'compare');
-//      toggleClassList('.summary', 'compare');
-//      toggleClassList('.score', 'compare');
-//      toggleClassList('.details', 'compare');
-//      toggleClassList('.city-section-compare', 'no-show-compare-button');
-//      toggleClassList('.summary-compare', 'no-show-compare-button');
-//      toggleClassList('.score-compare', 'no-show-compare-button');
-//      toggleClassList('.details-compare', 'no-show-compare-button');
-//      toggleClassList('.select-form-compare', 'no-show-compare-button');
-//      toggleClassList('.single-button', 'no-show-compare-button');
-//      toggleClassList('.compare-button', 'no-show-compare-button');
-// });
-
 
 // TOGGLE ON the cities component
 const toggleOnSection1 = () => {
@@ -70,13 +47,11 @@ submitContinentButton.addEventListener('click', (e) => {
      toggleOnSection1();
 
      const options = document.querySelectorAll('#city option');
-     // console.log(options);
      options.forEach(option => {
           option.remove();
      });
 
      const submittedContinent = document.querySelector('#continents').value
-     // console.log(submittedContinent)
      getUrbanAreaList(submittedContinent);
 });
 
@@ -118,7 +93,6 @@ const toggleOnSections = () => {
           });
      }
 }
-
 
 
 // GET Selected City as input for the Summary section
@@ -195,8 +169,6 @@ async function getUrbanAreaList(continent) {
           };
      };
 };
-// getUrbanAreaList();
-
 
 // PUT Urban Area List in the City Dropdown
 function addListToCityDropdown(list) {
@@ -268,14 +240,12 @@ const putQolScoreAndSummary = (scoreData) => {
           summaryP.className = 'city-summary summary-detail';
      });
 
-     // const summaryParentDiv = document.querySelector('.summary-div');
      const summaryList = document.querySelector('.summary-list');
 
      const newQol = document.createElement('li');
      newQol.className = 'qol-score summary-detail summary-list-item';
      newQol.innerText = `TOTAL QUALITY OF LIFE SCORE: ${Math.round(scoreData.teleport_city_score)}`;
 
-     // summaryParentDiv.append(summaryDiv);
      summaryList.append(newQol);
 }
 
@@ -333,22 +303,22 @@ const putScores = (scoreData) => {
 
 // PUT details dropdown from urban areas details
 const putDetailsDropdown = (detailData) => {
-     // console.log(detailData);
      const detailsDropdown = document.querySelector('#detail-categories');
 
      const detailOptions = document.querySelectorAll('.detail-option');
-     // console.log(detailOptions.length)
-     if (detailOptions.length <= 1) {
 
-          detailData.forEach(detail => {
-               const newOption = document.createElement('option');
-               newOption.value = detail.id;
-               newOption.innerText = detail.label;
-               newOption.className = 'detail-option';
+     detailOptions.forEach(detailOption => {
+          detailOption.remove()
+     });
 
-               detailsDropdown.append(newOption);
-          });
-     }
+     detailData.forEach(detail => {
+          const newOption = document.createElement('option');
+          newOption.value = detail.id;
+          newOption.innerText = detail.label;
+          newOption.className = 'detail-option';
+
+          detailsDropdown.append(newOption);
+     });
 }
 
 
@@ -358,7 +328,6 @@ async function getUrbanAreaDetails(urbanArea, section, category = false) {
      try {
           const response = await axios.get(url);
           data = response.data.categories;
-          // console.log(data);
           if (section === 'summary') {
                return putPopulation(data),
                     putDetailsDropdown(data);
@@ -394,7 +363,6 @@ const putPopulation = (detailData) => {
 // PARSE urban area details data
 // for details area
 const putCategoryDetails = (detailData, category) => {
-     // console.log(detailData);
      const detailsUl = document.querySelector('.details-ul');
      detailData.forEach(detail => {
           if (detail.id === category) {
@@ -428,7 +396,6 @@ async function getTotalCityCount(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.count;
-          // console.log(data);
           return putCitiesCount(data);
      } catch (error) {
           console.log('Error', error);
@@ -455,7 +422,6 @@ async function getImages(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.photos[0].image;
-          // console.log(data);
           return putImages(data);
      } catch (error) {
           console.log('Error', error);
@@ -472,12 +438,7 @@ const putImages = (imageData) => {
      newMobileImage.alt = 'city image';
      newMobileImage.className = 'mobile-image summary-detail'
 
-     // const newWebImage = document.createElement('img');
-     // newWebImage.src = imageData.web;
-     // newWebImage.className = 'web-image';
-
      imgDiv.append(newMobileImage);
-     // imgDiv.append(newWebImage);
 }
 
 
@@ -507,23 +468,16 @@ const toggleOnSection1Compare = () => {
 // GET selection from Continent Dropdown on Updated button - COMPARE
 const submitContinentButtonCompare = document.querySelector('#update-city-list-compare');
 submitContinentButtonCompare.addEventListener('click', (e) => {
-     // console.log(1)
      e.preventDefault();
 
      toggleOnSection1Compare();
 
-     // console.log(2)
      const options = document.querySelectorAll('#city-compare option');
-     // console.log(options)
-     // console.log(options);
      options.forEach(option => {
-          // console.log(3)
           option.remove();
      });
 
-     // console.log(4)
      const submittedContinent = document.querySelector('#continents-compare').value
-     // console.log(submittedContinent)
      getUrbanAreaListCompare(submittedContinent);
 });
 
@@ -630,7 +584,6 @@ async function getUrbanAreaListCompare(continent) {
           };
      };
 };
-// getUrbanAreaList();
 
 
 // PUT Urban Area List in the City Dropdown
@@ -691,6 +644,7 @@ async function getUrbanAreaScoresCompare(urbanArea) {
      }
 };
 
+
 // PARSE urban area scores data
 // for summary area - QOL Score, Summary
 const putQolScoreAndSummaryCompare = (scoreData) => {
@@ -703,14 +657,12 @@ const putQolScoreAndSummaryCompare = (scoreData) => {
           summaryP.className = 'city-summary-compare summary-detail-compare';
      });
 
-     // const summaryParentDiv = document.querySelector('.summary-div');
      const summaryList = document.querySelector('.summary-list-compare');
 
      const newQol = document.createElement('li');
      newQol.className = 'qol-score-compare summary-detail-compare summary-list-item-compare';
      newQol.innerText = `TOTAL QUALITY OF LIFE SCORE: ${Math.round(scoreData.teleport_city_score)}`;
 
-     // summaryParentDiv.append(summaryDiv);
      summaryList.append(newQol);
 }
 
@@ -771,17 +723,19 @@ const putDetailsDropdownCompare = (detailData) => {
      const detailsDropdown = document.querySelector('#detail-categories-compare');
 
      const detailOptions = document.querySelectorAll('.detail-option-compare');
-     if (detailOptions.length <= 1) {
 
-          detailData.forEach(detail => {
-               const newOption = document.createElement('option');
-               newOption.value = detail.id;
-               newOption.innerText = detail.label;
-               newOption.className = 'detail-option-compare';
+     detailOptions.forEach(detailOption => {
+          detailOption.remove()
+     });
 
-               detailsDropdown.append(newOption);
-          });
-     }
+     detailData.forEach(detail => {
+          const newOption = document.createElement('option');
+          newOption.value = detail.id;
+          newOption.innerText = detail.label;
+          newOption.className = 'detail-option-compare';
+
+          detailsDropdown.append(newOption);
+     });
 }
 
 
@@ -791,7 +745,6 @@ async function getUrbanAreaDetailsCompare(urbanArea, section, category = false) 
      try {
           const response = await axios.get(url);
           data = response.data.categories;
-          // console.log(data);
           if (section === 'summary') {
                return putPopulationCompare(data),
                     putDetailsDropdownCompare(data);
@@ -886,7 +839,6 @@ async function getImagesCompare(urbanArea) {
      try {
           const response = await axios.get(url);
           data = response.data.photos[0].image;
-          // console.log(data);
           return putImagesCompare(data);
      } catch (error) {
           console.log('Error', error);
