@@ -2,17 +2,11 @@
 const toggleClassList = (identifyingClass, toggleClass) => {
      const elements = document.querySelectorAll(identifyingClass);
 
-     console.log(elements.length);
-     console.log(elements);
      if (elements.length >= 1) {
-          console.log(2)
           elements.forEach(element => {
-               console.log(3)
-               console.log(element)
                element.classList.toggle(toggleClass);
           });
      } else if (elements.length === 1) {
-          console.log(1)
           const element = document.querySelector(identifyingClass);
           element.classList.toggle(toggleClass)
      }
@@ -100,6 +94,7 @@ function getCityValueAndBuildPage(compare = '') {
      getUrbanAreaScores(city, compare);
      getUrbanAreaDetails(city, 'summary', false, compare);
      getTotalCityCount(city, compare);
+     getSalaries(city, compare);
 }
 
 // update all the city info when the sity button is clicked
@@ -448,3 +443,40 @@ const putImages = (imageData, compare = '') => {
 
      imgDiv.append(newMobileImage);
 }
+
+
+// GET salaries
+// async function getSalaries(urbanArea, compare = '') {
+//      const url = `https://api.teleport.org/api/urban_areas/slug:${urbanArea}/salaries/`;
+//      try {
+//           const response = await axios.get(url);
+//           data = response.data.salaries;
+//           console.log(data)
+//           return putSalaries(data, compare);
+//      } catch (error) {
+//           console.log('Error', error);
+//      }
+// };
+
+
+// put image in summary area
+// const putSalaries = (salaryData, compare = '') => {
+//      const summaryParentDiv = document.querySelector(`.summary-salary-list${compare}`);
+
+     
+
+
+
+// }
+
+// const putCitiesCount = (urbanCitiesData, compare = '') => {
+//      const summaryParentDiv = document.querySelector(`.summary-list${compare}`);
+
+//      const cityCount = urbanCitiesData;
+
+//      const newCityCount = document.createElement('li');
+//      newCityCount.className = `city-count${compare} summary-detail${compare} summary-list-item${compare}`;
+//      newCityCount.innerText = `TOTAL CITIES: ${cityCount}`;
+
+//      summaryParentDiv.append(newCityCount);
+// }
