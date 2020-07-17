@@ -162,5 +162,35 @@ Include a full list of features that have been prioritized based on the `Time an
 
 ## Code Snippet
 
+This code doesn't look like much, but it took me a while to put together. It is how I toggle between the single and compare view. I'm proud of it because it took a lot of understanding to be able to put together. I had to understand what the beginning state of the site needed to be in terms of CSS tags that were attached to "display: none". Then I would toggle them on and off using both this function and the toggle class function. I hide different information and show it at different times, so I had to fight a lot of bugs when building this out. 
+
+```
+const compareButton = document.querySelector('.compare-button');
+compareButton.addEventListener('click', (e) => {
+     e.preventDefault();
+
+     toggleClassList('.main-div', 'side-by-side');
+     toggleClassList('.select-form', 'compare');
+     toggleClassList('.summary', 'compare');
+     toggleClassList('.score', 'compare');
+     toggleClassList('.details', 'compare');
+     toggleClassList('.salaries', 'compare');
+     toggleClassList('.city-section-compare', 'no-show-compare-button');
+     toggleClassList('.summary-compare', 'no-show-compare-button');
+     toggleClassList('.score-compare', 'no-show-compare-button');
+     toggleClassList('.details-compare', 'no-show-compare-button');
+     toggleClassList('.select-form-compare', 'no-show-compare-button');
+     toggleClassList('.salaries-compare', 'no-show-compare-button');
+
+     const buttonText = document.querySelector('.compare-button').innerText;
+     if (buttonText === 'Compare') {
+          document.querySelector('.compare-button').innerText = 'Single'
+     } else {
+          document.querySelector('.compare-button').innerText = 'Compare'
+     }
+});
+```
 ## Change Log
 
+- only real change was that I decided to build out the compare view instead of adding other data, apis, or filters. 
+- I also added a section on the bottom on Thursday to show salary ranges based on different titles. 
