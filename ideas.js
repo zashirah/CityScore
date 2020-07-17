@@ -16,3 +16,9 @@ continentDropdown.addEventListener('keyup', (e) => {
 const summary = document.querySelector('.summary');
 console.log(1)
 console.log(summary.clientHeight);
+
+
+
+// https://dev.virtualearth.net/REST/V1/Imagery/Map/road?mapArea=32.844,-85.386,34.618,-83.269&key=AuhChJPgzJDNAKh8HLlYX3j-KyZ3B6IVRvmC1GJPPCOkFyXwsywRS596XZYfSf9M&format=jpeg
+
+// south, west, north, east
