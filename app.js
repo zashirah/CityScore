@@ -145,8 +145,8 @@ submitDetailButtonCompare.addEventListener('click', (e) => {
 
 
 // GET Urban Areas List based on Continent dropdown
+// REFACTOR THIS
 async function getUrbanAreaList(continent, compare = '') {
-     // console.log(continent)
      if (continent === 'all') {
           try {
                const allUrl = 'https://api.teleport.org/api/urban_areas';
