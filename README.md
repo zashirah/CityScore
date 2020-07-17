@@ -2,6 +2,8 @@
 
 # CityScore
 
+Project Link: https://pages.git.generalassemb.ly/zshirah/CityScore/
+
 ## Project Description
 
 A 1 page site showing multiple data points for a particular city (or urban area). Data points include: quality of life, business freedom, climate, cost of living, culture, education, job market, tolerance, and much more. 
