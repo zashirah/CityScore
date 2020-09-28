@@ -2,7 +2,7 @@
 
 # CityScore
 
-Project Link: https://pages.git.generalassemb.ly/zshirah/CityScore/
+Project Link: https://zashirah.github.io/CityScore/
 
 *If you use and tablet or laptop, you are able to compare cities
 
